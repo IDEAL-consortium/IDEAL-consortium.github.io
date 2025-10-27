@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - IDEAL Research Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/ideal-style.css">
+    <style>
+        /* About-specific styles only */
+        .page-header {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 120px 0 80px;
+            margin-top: 70px;
+        }
+
+        .page-header-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #4a5568;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: #f7fafc;
+            padding: 80px 0;
+            margin: 80px 0;
+            border-radius: 16px;
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-text h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .mission-stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .mission-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-stat-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .team-member {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            border-color: #2b6cb0;
+            box-shadow: 0 8px 30px rgba(43, 108, 176, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #2b6cb0;
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-title {
+            color: #2b6cb0;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-expertise {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .expertise-tag {
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: #cbd5e0;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-left-color: #e2e8f0;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent;
+            border-right-color: #e2e8f0;
+            transform: translateY(-50%);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #2b6cb0;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .mission-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                left: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 4rem;
+            }
+            
+            .timeline-year {
+                left: 2rem;
+                transform: translateX(-50%);
+            }
+            
+            .timeline-content {
+                margin: 0;
+            }
+            
+            .timeline-content::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mission-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Professional Navigation (reused from index.html) -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">
+                        <img src="assets/images/logos/ideal.png" alt="IDEAL" class="nav-logo" />
+                    </a>
+                </div>
+                <!-- Navigation will be generated here by JavaScript -->
+                <ul class="nav-menu">
+                    <!-- Dynamic navigation content -->
+                </ul>
+                <button class="nav-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">About IDEAL</h1>
+                <p class="page-subtitle">
+                    Learn about our mission, values, and the dedicated team driving scientific innovation 
+                    and discovery in open research.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Coming Soon Section -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Coming Soon</h2>
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+
+    <!-- Professional Footer (reused from index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Research Institute</h4>
+                    <p>
+                        Advancing scientific discovery through innovative research, open collaboration, 
+                        and commitment to academic excellence.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Research</h4>
+                    <ul>
+                        <li><a href="research.html">Research Areas</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="metadata.html">Metadata Schema</a></li>
+                        <li><a href="#">Methodologies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">ResearchGate</a></li>
+                        <li><a href="#">ORCID</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="#">Office Locations</a></li>
+                        <li><a href="#">Media Inquiries</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Impact Data and Evidence Aggregation Library (IDEAL). Licensed under Creative Commons Attribution 4.0.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load navigation, footer, and other scripts -->
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/ideal-script.js"></script>
+</body>
+</html>

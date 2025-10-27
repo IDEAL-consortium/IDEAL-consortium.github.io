@@ -31,9 +31,9 @@ class FooterManager {
                 title: 'Support',
                 type: 'links',
                 links: [
-                    { href: 'contact.html', text: 'Contact Us' },
-                    { href: 'contact.html', text: 'Collaboration/Partnership' },
-                    { href: 'contact.html', text: 'Report Issue' }
+                    { href: 'https://www.worldbank.org/en/programs/sief-trust-fund/brief/sief-ideal-project-description', text: 'Contact Us' },
+                    { href: 'https://www.worldbank.org/en/programs/sief-trust-fund/brief/sief-ideal-project-description', text: 'Collaboration/Partnership' },
+                    { href: 'https://www.worldbank.org/en/programs/sief-trust-fund/brief/sief-ideal-project-description', text: 'Report Issue' }
                 ]
             }
         ];

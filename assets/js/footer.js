@@ -14,7 +14,7 @@ class FooterManager {
                 type: 'links',
                 links: [
                     { href: 'index.html', text: 'Home' },
-                    { href: 'about.html', text: 'About' }
+                    { href: 'https://ideal-coding-overview.streamlit.app/', text: 'Dashboard' }
                 ]
             },
             {

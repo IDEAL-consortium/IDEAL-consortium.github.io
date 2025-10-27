@@ -15,7 +15,7 @@ class NavigationManager {
                 adminOnly: true,
                 id: 'adminTab'
             },
-            { href: 'contact.html', text: 'Contact', active: false }
+            { href: 'https://www.worldbank.org/en/programs/sief-trust-fund/brief/sief-ideal-project-description', text: 'Contact', active: false }
         ];
         
         this.currentPage = this.getCurrentPage();

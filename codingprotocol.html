@@ -1286,6 +1286,7 @@
 </div>
 </details>
 
+
 <details>
 <summary>Implementer type</summary>
 <div class="field-container">
@@ -9909,741 +9910,1377 @@ Based on data source and time, there are 3 rounds of survey data, as they are co
 <summary>Resources</summary>
 
 <details>
-<summary>Data availability</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Study</p>
-    <h3>Definition</h3>
-    <p>Information about data availability and access</p>
-    <h3>Response options</h3>
-    <p>Open-text</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Single entry for the study</p>
+<summary>Registry Name</summary>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Variable Name</h4>
+      <p class="metadata-value"><code>registryName</code></p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please provide information about data availability and access.</li>
-      <li>Include any details about data sharing policies, repositories, or access restrictions.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Registry Name</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Study</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Registry name (organization where the trial is registered).</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">text-CV select all</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">AEA RCT registry<br>ClinicalTrials.gov<br>The Registry for International Development Impact Evaluations (RIDIE)<br>Open Science Framework (OSF)<br>Other, specify<br>Not stated</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Add an open-text field for “Other, specify”</p>
+    </div>
+  </div>
+  
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Please select the name of the registry or registries in which the study is registered only if it is mentioned in the main text of the paper or its supplementary materials/appendices.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Do not search for this information beyond what is included in the paper.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Sometimes information on trial registration is mentioned in the footnotes.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Searching for the exact terms throughout the text such as "registry", "pre-registration" or "pre-analysis plan" can be a good approach to double-check whether the trial registry is mentioned anywhere in the text or supplementary appendix.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">If the name of the trial registry is not mentioned in the paper or its supplementary materials/appendices, please select "Not stated".</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
+            <p>In <strong>Brudevold-Newman et al., 2023</strong>, the name of the organization where the trial is registered is stated in the footnote page 1: "The study was registered at the AEA RCT registry under ID number AEARCTR-0000459."</p>
+            <div class="example-answer">
+              <span class="answer-label">Answer:</span>
+              <span class="answer-value">AEA RCT registry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</details>
+
+
+<details>
+<summary>Registration ID</summary>
+    <div class="field-container">
+      <div class="field-metadata">
+        <div class="metadata-section">
+          <h4 class="metadata-label">Variable Name</h4>
+          <p class="metadata-value"><code>registrationID</code></p>
+  </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">Field Name</h4>
+          <p class="metadata-value">Registration ID</p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">Level</h4>
+          <p class="metadata-value">Study</p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">Definition</h4>
+          <p class="metadata-value">Registration ID (unique identifier issued by the organization where the trial is registered).</p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">Response Options</h4>
+          <p class="metadata-value">Open-text</p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+          <p class="metadata-value"><em>None</em></p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">Cardinality (extraction)</h4>
+          <p class="metadata-value">0..n Optional and repeatable</p>
+        </div>
+        <div class="metadata-section">
+          <h4 class="metadata-label">SurveyCTO instructions</h4>
+          <p class="metadata-value">Skip this question if “Not stated” is selected for “Registry Name”. Match the number of registries clicked in “Registry Name” and provide one registration ID field for each.</p>
+        </div>
+      </div>
+      
+      <div class="field-instructions">
+        <div class="instruction-section">
+          <h4 class="instruction-title">Coding Instructions</h4>
+          <div class="instruction-content">
+            <ul class="instruction-points">
+              <li class="instruction-point">
+                <span class="point-icon">•</span>
+                <span class="point-text">Please enter the registry ID or IDs of the study only if it is mentioned in the main text of the paper or its supplementary materials/appendices.</span>
+              </li>
+              <li class="instruction-point">
+                <span class="point-icon">•</span>
+                <span class="point-text">Record full ID with prefixes if included (e.g. RIDIE-STUDY-ID-64be2e6e750).</span>
+              </li>
+              <li class="instruction-point">
+                <span class="point-icon">•</span>
+                <span class="point-text">There could be different terminologies: the AEA RCT Registry gives each entry an "RCT ID", while ClinicalTrials.gov gives each entry a "ClinicalTrials.gov Identifier".</span>
+              </li>
+              <li class="instruction-point">
+                <span class="point-icon">•</span>
+                <span class="point-text">This information is usually presented in the acknowledgements or ethics statement sections of a paper, or in the supplementary materials/appendices.</span>
+              </li>
+              <li class="instruction-point">
+                <span class="point-icon">•</span>
+                <span class="point-text">If no registration ID is provided, please write "Not stated".</span>
+              </li>
+    </ul>
+          </div>
+        </div>
+        
+        <div class="instruction-section">
+          <h4 class="instruction-title">Examples</h4>
+          <div class="example-cards">
+            <div class="example-card">
+              <div class="example-content">
+                <p>In <strong>Brudevold-Newman et al., 2023</strong>, the ID registration is stated in the footnote page 1. 'The study was registered at the AEA RCT registry under ID number AEARCTR-0000459.'</p>
+                <div class="example-answer">
+                  <span class="answer-label">Answer:</span>
+                  <span class="answer-value">AEARCTR-0000459</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
   </div>
 </div>
 </details>
 
 <details>
-<summary>Code availability</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Study</p>
-    <h3>Definition</h3>
-    <p>Information about code availability and access</p>
-    <h3>Response options</h3>
-    <p>Open-text</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Single entry for the study</p>
+<summary>Number of IRBs reported</summary>
+        <div class="field-container">
+          <div class="field-metadata">
+            <div class="metadata-section">
+              <h4 class="metadata-label">Variable Name</h4>
+              <p class="metadata-value"><code>irbNum</code></p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please provide information about code availability and access.</li>
-      <li>Include any details about code repositories, sharing policies, or access restrictions.</li>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Field Name</h4>
+              <p class="metadata-value">Number of IRBs reported</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Level</h4>
+              <p class="metadata-value">Study</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Definition</h4>
+              <p class="metadata-value">The total number of ethics review reported in the paper</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Response Options</h4>
+              <p class="metadata-value">Numeric</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+              <p class="metadata-value"><em>None</em></p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Cardinality (extraction)</h4>
+              <p class="metadata-value">0..n Optional and repeatable</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">SurveyCTO instructions</h4>
+              <p class="metadata-value">Loop through for each IRB</p>
+            </div>
+          </div>
+          
+          <div class="field-instructions">
+            <div class="instruction-section">
+              <h4 class="instruction-title">Coding Instructions</h4>
+              <div class="instruction-content">
+                <ul class="instruction-points">
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">Enter the number of ethics reviews or IRBs mentioned in the main text of the paper or in the supplementary materials/appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">Studies can have multiple IRB or ethics board approvals.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">This information is usually present in the acknowledgements or ethics statement sections of a paper. If it is not present there, it may be present in the supplementary materials/appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">If not mentioned in the paper or its supplementary materials/appendices, please write 0.</span>
+                  </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
   </div>
 </div>
+            
+            <div class="instruction-section">
+              <h4 class="instruction-title">Examples</h4>
+              <div class="example-cards">
+                <div class="example-card">
+                  <div class="example-content">
+                    <p><strong>Abimpaye et al., 2020</strong> reports one review with "Rwanda National Ethics Committee" as the ethics review body.</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">1</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-card">
+                  <div class="example-content">
+                    <p><strong>Athey et al., 2023</strong> obtained ethical reviews from three committees: Cameroon’s National Ethics Committee (CNERSH; decision no. 2019/08/1183/CE/CNERSH/SP), administrative authorization from the Ministry of Health’s DROS (decision no. D30-760/L/MIN-SANTE/SG/DROS), and the authors’ institutional review board (decision no. 780/CIERSH/DM/2018).</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 </details>
 
 <details>
-<summary>Additional resources</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Study</p>
-    <h3>Definition</h3>
-    <p>Additional resources related to the study</p>
-    <h3>Response options</h3>
-    <p>Open-text</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each additional resource</p>
-  </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please provide information about any additional resources related to the study.</li>
-      <li>Include any details about supplementary materials, documentation, or other relevant resources.</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
-  </div>
-</div>
+<summary>Review board name</summary>
+        <div class="field-container">
+          <div class="field-metadata">
+            <div class="metadata-section">
+              <h4 class="metadata-label">Variable Name</h4>
+              <p class="metadata-value"><code>irbName</code></p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Field Name</h4>
+              <p class="metadata-value">Review board name</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Level</h4>
+              <p class="metadata-value">Study</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Definition</h4>
+              <p class="metadata-value">The name or hosting institution of the ethics review body</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Response Options</h4>
+              <p class="metadata-value">Open-text</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+              <p class="metadata-value"><em>None</em></p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Cardinality (extraction)</h4>
+              <p class="metadata-value">0..n Optional and repeatable</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">SurveyCTO instructions</h4>
+              <p class="metadata-value">Skip this field if answer to “Number of IRBs reported” is 0. Display this field and the next field on the same survey page.</p>
+            </div>
+          </div>
+  
+          <div class="field-instructions">
+            <div class="instruction-section">
+              <h4 class="instruction-title">Coding Instructions</h4>
+              <div class="instruction-content">
+                <ul class="instruction-points">
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">For each ethics review board, include the complete name of the review board as it appears in the main text of the paper or in the supplementary materials/appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">This information is usually in the acknowledgements or ethics statement sections of a paper or in the supplementary materials/appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">If not mentioned in the paper or its supplementary materials/appendices, please write "Not stated".</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="instruction-section">
+              <h4 class="instruction-title">Examples</h4>
+              <div class="example-cards">
+                <div class="example-card">
+                  <div class="example-content">
+                    <p><strong>Abimpaye et al., 2020</strong> explicitly states that "This study was reviewed and approved by the Rwanda National Ethics Committee."</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">Rwanda National Ethics Committee</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-card">
+                  <div class="example-content">
+                    <p>The study <strong>Barrera-Osorio et al., 2022</strong> has an IRB approval number with the organization Columbia University.</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">Columbia University</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</details>
+
+<details>
+<summary>Review number</summary>
+        <div class="field-container">
+          <div class="field-metadata">
+            <div class="metadata-section">
+              <h4 class="metadata-label">Variable Name</h4>
+              <p class="metadata-value"><code>reviewNum</code></p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Field Name</h4>
+              <p class="metadata-value">Review number</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Level</h4>
+              <p class="metadata-value">Study</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Definition</h4>
+              <p class="metadata-value">IRB protocol number or case reference</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Response Options</h4>
+              <p class="metadata-value">Open-text</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+              <p class="metadata-value"><em>None</em></p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">Cardinality (extraction)</h4>
+              <p class="metadata-value">0..n Optional and repeatable</p>
+            </div>
+            <div class="metadata-section">
+              <h4 class="metadata-label">SurveyCTO instructions</h4>
+              <p class="metadata-value">Skip this field if answer to “Number of IRBs reported” is 0.</p>
+            </div>
+          </div>
+  
+          <div class="field-instructions">
+            <div class="instruction-section">
+              <h4 class="instruction-title">Coding Instructions</h4>
+              <div class="instruction-content">
+                <ul class="instruction-points">
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">For each IRB approval, enter the approval number/ID as it appears in the main text of the paper or its appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">Record full ID including prefixes. Copy the number or ID exactly as it appears in the paper.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">This may appear next to the review board name with "#". This information is usually present in the acknowledgements or ethics statement sections of a paper or in the supplementary materials/appendices.</span>
+                  </li>
+                  <li class="instruction-point">
+                    <span class="point-icon">•</span>
+                    <span class="point-text">If not mentioned in the paper or its supplementary materials/appendices, please enter "Not stated".</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="instruction-section">
+              <h4 class="instruction-title">Examples</h4>
+              <div class="example-cards">
+                <div class="example-card">
+                  <div class="example-content">
+                    <p><strong>Abimpaye et al., 2020</strong> notes that "This study was reviewed and approved by the Rwanda National Ethics Committee”, but no reference or case number was reported.</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">Not stated</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-card">
+                  <div class="example-content">
+                    <p>In <strong>Barrera-Osorio et al., 2022</strong>, the IRB approval number is reported as AAAF4126.</p>
+                    <div class="example-answer">
+                      <span class="answer-label">Answer:</span>
+                      <span class="answer-value">AAAF4126</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 </details>
 
 </details>
-
-
-</details>
-
-</details>
-
-</details>
-
 </details>
 
 <!-- Stage 3 Module 2: Estimates -->
 <details>
 <summary>Stage 3 Module 2: Estimates</summary>
 
-<div style="padding: 1rem;">
-  <p><strong>Section notes:</strong> This section will go through each of the treatment effects confirmed in Stage 2 to collect the estimates of treatment effects. A treatment effect is defined by the outcome variable (that enters estimation), the comparison between the evaluation arm and the reference arm, the estimand, the empirical specification, and the periods (the data rounds used for the estimation and, if relevant, how they are pooled). Please review the pre-loaded information on the treatment effect carefully before answering the estimate questions.</p>
-  
-  <p><strong>Instructions for data entry mask:</strong> This set of questions on estimates should loop through each treatment effect confirmed in Stage 2. The preloaded prompts for coders include: [Exhibit number], [Outcome name], [Unit of analysis], [Eval arm], [Reference arm], [Estimand], [Empirical specifications], [Period (including rounds)]. This information needs to be presented for every treatment effect at the beginning of the estimate questions.</p>
+<div class="instruction-section" style="padding: 1rem;">
+  <h4 class="instruction-title">Section notes to display in the survey</h4>
+  <div class="instruction-content">
+    <p>This section will go through each of the treatment effects confirmed in Stage 2 to collect the estimates of treatment effects. A treatment effect is defined by the outcome variable (that enters estimation), the comparison between the evaluation arm and the reference arm, the estimand, the empirical specification, and the periods (the data rounds used for the estimation and, if relevant, how they are pooled). Please review the pre-loaded information on the treatment effect carefully before answering the estimate questions.</p>
+  </div>
+</div>
+<div class="instruction-section" style="padding: 0 1rem 1rem;">
+  <h4 class="instruction-title">Instructions for data entry mask</h4>
+  <div class="instruction-content">
+    <p>This set of questions on estimates should loop through each treatment effect confirmed in Stage 2. The preloaded prompts for coders include:</p>
+    <p>- [Exhibit number]</p>
+    <p>- [Outcome name]</p>
+    <p>- [Unit of analysis]</p>
+    <p>- [Eval arm]</p>
+    <p>- [Reference arm]</p>
+    <p>- [Estimand]</p>
+    <p>- [Empirical specifications]</p>
+    <p>- [Period (including rounds)]</p>
+    <p>This information needs to be presented for every treatment effect at the beginning of the estimate questions.</p>
+  </div>
 </div>
 
 <details>
 <summary>Estimation parameter</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>The estimation parameter of the treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Mean Difference (Final Values)</li>
-      <li>Mean Difference (Net)</li>
-      <li>Median Difference (Final Values)</li>
-      <li>Median Difference (Net)</li>
-      <li>Hazard Ratio (HR)</li>
-      <li>Hazard Ratio, Log</li>
-      <li>Odds Ratio (OR)</li>
-      <li>Odds Ratio, Log</li>
-      <li>Risk Difference (RD)</li>
-      <li>Risk Ratio (RR)</li>
-      <li>Risk Ratio, Log</li>
-      <li>Slope</li>
-      <li>Other, specify</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each treatment effect</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Estimation parameter</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please select the estimation parameter of the treatment effect.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">The estimation parameter of the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Mean Difference (Final Values)<br>Mean Difference (Net)<br>Median Difference (Final Values)<br>Median Difference (Net)<br>Hazard Ratio (HR)<br>Hazard Ratio, Log<br>Odds Ratio (OR)<br>Odds Ratio, Log<br>Risk Difference (RD)<br>Risk Ratio (RR)<br>Risk Ratio, Log<br>Slope<br>Other, specify</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for each treatment effect</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Please select the estimation parameter of the treatment effect.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
     <p>See descriptive examples in paper.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Estimation model</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>The statistical model used to estimate the treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Ordinary Least Squares (OLS) regression</li>
-      <li>Multi-level or hierarchical model/regression</li>
-      <li>Logistic regression</li>
-      <li>Probit regression</li>
-      <li>Log-linear binomial regression</li>
-      <li>Structural equation model (SEM) /regression</li>
-      <li>Analysis of Variance (ANOVA)</li>
-      <li>Analysis of Covariance (ANCOVA)</li>
-      <li>T-test (mean-comparison test)</li>
-      <li>Other, specify</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each treatment effect</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Estimation model</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please select the statistical model used to estimate the treatment effect.</li>
-      <li>The information is usually found in sections that focus on methods, analytical strategy, or results or in the table notes.</li>
-      <li>In most cases in Economics, a regression with no further description refers to an OLS regression model. However, that is not always the case. If you are not sure about which model was used, please select "Other, specify" and enter the information you found in the paper. Flag this question in the "Request for review" section as well.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">The statistical model used to estimate the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Ordinary Least Squares (OLS) regression<br>Multi-level or hierarchical model/regression<br>Logistic regression<br>Probit regression<br>Log-linear binomial regression<br>Structural equation model (SEM) /regression<br>Analysis of Variance (ANOVA)<br>Analysis of Covariance (ANCOVA)<br>T-test (mean-comparison test)<br>Other, specify</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for each treatment effect</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Please select the statistical model used to estimate the treatment effect.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">The information is usually found in sections that focus on methods, analytical strategy, or results or in the table notes.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">If you are not sure which model was used, select "Other, specify" and enter the information found. Flag in the request-for-review if needed.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>In Wolf et al., 2019, the "Impact analysis" section (page 23) suggests that "multi-level modeling" was used to estimate the treatment effects on child, teacher and classroom outcomes. So, we can assume "multi-level or hierarchical model/regression" is the estimation model for all treatment effects in the paper, unless it is specified otherwise for a particular case.</p>
-    <p>Table 4 reports treatment effects for teach-level and classroom-level outcomes. Footnote "a" suggests that "teacher turnover" treatment effects were estimated with multinomial logistic regressions. Thus, for those treatment effects, the estimation model should be "Logistic regression", while for the rest in the same table, the answer should be "multi-level or hierarchical model/regression".</p>
-    <p>In Ara et al., 2019, Table 3 presents group means by study arm and the p-value associated with the group mean difference without directly reporting the mean difference. In this case, a coder should select "T-test (mean-comparison test)" for treatment effects in the table.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
+            <p>In Wolf et al., 2019, the Impact analysis suggests multi-level modeling was used; select "Multi-level or hierarchical model/regression" unless otherwise specified.</p>
+            <p>For "teacher turnover" in Table 4, multinomial logistic regressions were used; select "Logistic regression" for those effects.</p>
+            <p>In Ara et al., 2019 Table 3, select "T-test (mean-comparison test)".</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Null hypothesis</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>The mathematical expression of the null hypothesis being tested for the treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Null = 0</li>
-      <li>Null = 1</li>
-      <li>Null = constant (other than 0 or 1), specify constant</li>
-      <li>Null: (sharp null hypothesis)</li>
-      <li>Null: (sharp null hypothesis)</li>
-      <li>Null: (sharp null hypothesis), specify constant</li>
-      <li>Null ≥ 0</li>
-      <li>Null ≤ 0</li>
-      <li>Null ≥ 1</li>
-      <li>Null ≤ 1</li>
-      <li>Null ≥ constant (other than 0 or 1), specify constant</li>
-      <li>Null ≤ constant (other than 0 or 1), specify constant</li>
-      <li>Other, specify</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each treatment effect. Add an error check for odds ratio outcome variable. For treatment effect with an outcome variable in odds ratio, if a coder selects an option other than "Null=1", display a warning message "The null hypothesis for odds ratio outcome variable is usually set as 'Null=1', are you sure about your answer?"</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Null hypothesis</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>For each estimate, select the null hypothesis that was tested.</li>
-      <li>Look in the sections on theory, empirical strategy, and results to check if the author(s) have different theoretical priors around the null hypothesis.</li>
-      <li>Also note that oftentimes authors report alternative hypotheses the most prominently; it is important here that we are referring to the null hypothesis.</li>
-      <li>In most cases where the authors often do not explicitly state the null hypothesis, the null is equal to either 0 for non-binary dependent variables, or 1 for binary dependent variables. In other cases, the paper should have an explicit discussion about the hypotheses being tested. If you are not sure about your answer, please flag it in the request-for-review section.</li>
-      <li>Null=0: The null hypothesis is that the difference between the two groups in the outcome variable is 0. For non-binary dependent variables, this suggests there is no treatment effect.</li>
-      <li>Null= 1: The null hypothesis is that the difference between the two groups in the outcome variable is 1. For odds ratio, that means the odds of the outcome are the same in both the treatment group and the control group, indicating no difference. Therefore, if an outcome is measured in odds ratio, risk ratio or hazard ratio, the null hypothesis is often equal to 1.</li>
-      <li>Null=constant: If the authors report that the null hypothesis is that the treatment effect is equal to a constant other than 0 or 1.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">The mathematical expression of the null hypothesis being tested for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Null = 0<br>Null = 1<br>Null = constant (other than 0 or 1), specify constant<br>Null ≥ 0<br>Null ≤ 0<br>Null ≥ 1<br>Null ≤ 1<br>Null ≥ constant (other than 0 or 1), specify constant<br>Null ≤ constant (other than 0 or 1), specify constant<br>Other, specify</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for each treatment effect. Add an error check for odds ratio outcomes: if an option other than "Null = 1" is selected, display a warning.</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">For each estimate, select the null hypothesis that was tested.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">In most cases, the null is 0 for non-binary outcomes and 1 for odds/risk/hazard ratios unless otherwise stated.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
     <p>See descriptive examples in paper.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Linear combination of coefficients for treatment effect</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Please indicate the number of coefficients used to calculate the estimate of the treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>One (1)</li>
-      <li>More than one (1), specify</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each treatment effect that is estimated using a regression.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Number of coefficients used</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>In most cases, the point estimate of the treatment effect is presented in one parameter/coefficient in a statistical model, and please enter 1 for those.</li>
-      <li>However, sometimes, a treatment effect is calculated using a linear combination of more than coefficients in the same regression model. This is often seen in an RCT with a factorial design. If that's the case, please select the number of coefficients needed to calculate the treatment effect and enter the details of each of them in the following questions.</li>
-      <li>Read the regression tables and the results section closely to understand which coefficients correspond to the specified treatment effect.</li>
-      <li>Select "More than one" if you cannot find the relevant coefficients and specify that in the open-text field. Please also flag this in the request-for-review section.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Number of coefficients used to calculate the estimate of the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">One (1)<br>More than one (1), specify</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for each treatment effect that is estimated using a regression.</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Enter 1 when the estimate is a single coefficient; select "More than one" when it is a linear combination and specify.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Read the regression tables and results closely to identify the relevant coefficients.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>In Table 3 of <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20191972" target="_blank">Leaver et al, 2021</a>, there are treatment effects on student learning reported for four comparisons over three periods: Pooled, Year 1, and Year 2. Taking the Pooled period as an example, the treatment effects for different comparisons were reported in various coefficients.</p>
-    <p>The first comparison was between the group that was recruited through an advertisement for the pay-for-performance contract (P4P) but placed in a fixed-wage (FW) contract and the group that was recruited through the FW advertisement and placed in the same contract (i.e the comparison between a & b in Figure 1). [Note that this information has been confirmed in Stage 2 and presented as part of the prompt for the treatment effect.]</p>
-    <p>The treatment effect of that comparison on learning over the pooled period is presented in row 1, column 1 under Model A, as explained in the paper (p 2234). There is only one coefficient corresponding to this treatment effect, so the answer would be 1 to this field.</p>
-    <p>Another comparison was between the two groups that both applied under the P4P advertisement, but one got the P4P contract but the other received an FW contract (i.e. the comparison between b & d in Figure 1).</p>
-    <p>The treatment effect for that comparison should be a linear combination of row 2 and row 3 under Model B in Table 3 (see p 2235). Thus, the answer to this field would be 2.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
+            <p>In Leaver et al., 2021 Table 3, the pooled-period learning effect for one comparison is a single coefficient (answer: 1). Another comparison requires a linear combination of two coefficients under Model B (answer: More than one, specify: 2).</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Estimate of the treatment effect</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>The reported numeric value for the point estimate of the treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for the number of coefficients indicated in "Linear combination of coefficients for treatment effect". The estimate field and the following fields on precision stat, type and value fields should be displayed on the page.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Point estimate</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value, with the same number of decimal places, exactly as reported in the exhibit or text, for the estimation parameter of the treatment effect. Please make sure to include a negative sign if the number is negative.</li>
-      <li>If there are multiple parameters used to estimate the same treatment effect, e.g. using an interaction term, please enter the estimate for one parameter each at a time.</li>
-      <li>Enter "-99" if you cannot find it in the main text of the paper or its supplementary materials. This is unlikely to occur because the specified treatment effect has been confirmed in Stage 2. If so, please flag this field in the request-for-review section.</li>
-      <li>The information is often available in the tables (specified for the treatment effect) and the results section.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">The reported numeric value for the point estimate of the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for the number of coefficients indicated in "Linear combination of coefficients for treatment effect" and display together with precision fields.</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Enter the numerical value exactly as reported (sign and decimals preserved).</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">If multiple parameters are used (e.g., interactions), enter each coefficient separately.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Enter "-99" if not available in the main paper or appendix and flag for review.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>In Table 3 of <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20191972" target="_blank">Leaver et al, 2021</a>, there are treatment effects on student learning reported for four comparisons over three periods: Pooled, Year 1, and Year 2. Taking the Pooled period as an example, the treatment effects for different comparisons were reported in various coefficients.</p>
-    <p>The first comparison was between the group that was recruited through an advertisement for the pay-for-performance contract (P4P) but placed in a fixed-wage (FW) contract and the group that was recruited through the FW advertisement and placed in the same contract (i.e the comparison between a & b in Figure 1). [Note that this information has been confirmed in Stage 2 and presented as part of the prompt for the treatment effect.]</p>
-    <p>The treatment effect of that comparison on learning over the pooled period is presented in row 1, column 1 under Model A, as explained in the paper (p 2234). The point estimate is "0.01".</p>
-    <p>Another comparison was between the two groups that both applied under the P4P advertisement, but one got the P4P contract but the other received an FW contract (i.e. the comparison between b & d in Figure 1).</p>
-    <p>The treatment effect for that comparison should be a linear combination of row 2 and row 3 under Model B in Table 3 (see p 2235). Please enter the coefficients in two separate fields, and do not add them up by yourself.</p>
-    <p>The first coefficient is "0.12", and the second coefficient is "-0.03".</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
+            <p>In Leaver et al., 2021 Table 3 (Pooled, Model A), the point estimate is 0.01. For a comparison requiring two coefficients in Model B, enter 0.12 and -0.03 separately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
-<div style="padding: 1rem;">
-  <h3>Section notes for precision statistics</h3>
+<div class="instruction-section" style="padding: 1rem;">
+  <h4 class="instruction-title">Section notes to display in the survey</h4>
+  <div class="instruction-content">
   <p>We need several precision statistics to standardize effect sizes using reported treatment effects. The survey will guide you to help extract a sequence of precision values, and it will stop once the minimum set of values are captured. The information on the type of precision statistics and the value is often found in the notes in tables that report the treatment effects in the main paper or in the appendix. It is possible that different precision values for the same treatment effect are reported in various parts of the paper. Please check both the main paper and the appendix carefully.</p>
-  
-  <p><strong>For continuous variable:</strong></p>
-  <ul>
-    <li>We always get the SE and t-stat. If both present, we stop.</li>
-    <li>If either one is missing, we pick up the p-value (not adjusted for multiple inference) which can be used in combination with other fields to back out SE and t-stat.</li>
-    <li>If none of them are present, pick up the CI and the significance level, and F-ratio for one-way ANCOVA.</li>
-  </ul>
-  
+  </div>
+</div>
+<div class="instruction-section" style="padding: 0 1rem 1rem;">
+  <h4 class="instruction-title">Guidance</h4>
+  <div class="instruction-content">
+    <p><strong>For continuous variables:</strong></p>
+    <p>- We always get the SE and t-stat. If both present, we stop.</p>
+    <p>- If either one is missing, we pick up the p-value (not adjusted for multiple inference) which can be used with other fields to back out SE and t-stat.</p>
+    <p>- If none are present, pick up the CI and significance level, and F-ratio for one-way ANCOVA.</p>
   <p><strong>For binary variables:</strong></p>
-  <ul>
-    <li>We always get the Z-stat. If Z-stat is not present we pick up the t-stat or p-value (not adjusted for multiple-inference).</li>
-  </ul>
+    <p>- We always get the Z-stat. If Z-stat is not present, pick up the t-stat or p-value (not adjusted for multiple-inference).</p>
+  </div>
 </div>
 
 <details>
 <summary>Standard error of treatment effect estimate</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Standard error of the estimate for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for every treatment effect.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Standard error</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value of the reported standard error for the treatment effect, in exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>Please note that the standard error may not be reported for the estimate. If the paper does not provide a value, leave the cell blank.</li>
-      <li>Include any information for the following categories (table columns):</li>
-      <li>Unadjusted Value: Values reported with no corrections applied (explicitly stated by the authors).</li>
-      <li>Adjusted Value: Values of statistics that are corrected to improve precision or in cases when assumptions are violated.</li>
-      <li>Adjustment method: Common correction methods account for heteroscedasticity (Robust SEs), clustering (Clustered Robust SEs), or small sample sizes (Bootstrap estimation). Other adjustment methods include specific tests (Welch's t-test). If not specified in the paper, please write "Unknown".</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Standard error of the estimate for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for every treatment effect; capture both unadjusted and adjusted values where available.</p>
+    </div>
+  </div>
+
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">Enter the SE exactly as reported; leave blank if not reported.</span>
+          </li>
+          <li class="instruction-point">
+            <span class="point-icon">•</span>
+            <span class="point-text">If specified, record whether the value is unadjusted or adjusted and the adjustment method (e.g., robust, clustered, bootstrap). Use "Unknown" if not specified.</span>
+          </li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards">
+        <div class="example-card">
+          <div class="example-content">
     <p>See descriptive examples in paper.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>T-statistic of treatment effect estimate</summary> 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>T-statistic of the estimate for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for every treatment effect of a non-binary outcome.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">T-statistic</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value of the reported t-statistic for the treatment effect, in exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>Please note that it is possible that t-statistic is not reported for the estimate. If the paper does not provide a value, leave the cell blank.</li>
-      <li>Include any information for the following categories (table columns):</li>
-      <li>Unadjusted Value: Values reported with no corrections applied (explicitly stated by the authors).</li>
-      <li>Adjusted Value: Values of statistics that are corrected to improve precision or in cases when assumptions are violated.</li>
-      <li>Adjustment method: Common correction methods account for heteroscedasticity (Robust SEs), clustering (Clustered Robust SEs), or small sample sizes (Bootstrap estimation). Other adjustment methods include specific tests (Welch's t-test). If not specified in the paper, please write "Unknown".</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">T-statistic of the estimate for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for every treatment effect of a non-binary outcome.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter the t-statistic exactly as reported; leave blank if not reported.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Capture whether unadjusted or adjusted and note adjustment method if provided (robust, clustered, bootstrap). Use "Unknown" if not specified.</span></li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Z-statistic of treatment effect estimate</summary> 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Z-statistic of the estimate for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for every treatment effect of a binary outcome.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Z-statistic</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value of the reported Z-statistic for the treatment effect, in exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>Please note that it is possible that Z-statistic is not reported for the estimate. If the paper does not provide a value, leave the cell blank.</li>
-      <li>Include any information for the following categories (table columns):</li>
-      <li>Unadjusted Value: Values reported with no corrections applied (explicitly stated by the authors).</li>
-      <li>Adjusted Value: Values of statistics that are corrected to improve precision or in cases when assumptions are violated.</li>
-      <li>Adjustment method: Common correction methods account for heteroscedasticity (Robust SEs), clustering (Clustered Robust SEs), or small sample sizes (Bootstrap estimation). Other adjustment methods include specific tests (Welch's t-test). If not specified in the paper, please write "Unknown".</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Z-statistic of the estimate for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for every treatment effect of a binary outcome.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter the Z-statistic exactly as reported; leave blank if not reported.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Record unadjusted/adjusted status and adjustment method if provided. Use "Unknown" if not specified.</span></li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>P-value of treatment effect estimate</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>P-value of the estimate for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Display a table showing multiple p-value types for the categories described below.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">P-value</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value of the reported p-value for the treatment effect, in exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>Please note that it is possible that p-value is not reported for the estimate If the paper does not provide a value, leave the cell blank.</li>
-      <li>Include any p-value reported for the following adjustment methods:</li>
-      <li>Unadjusted: Basic p-values reported in statistical tests, with no corrections applied (explicitly stated by the authors).</li>
-      <li>Covariate adjustment: P-values derived from models that incorporate additional variables and controls (e.g., ANCOVA).</li>
-      <li>Multiple-hypothesis correction: P-values adjusted for multiple comparisons to control for false positives (e.g., Bonferroni correction, Holm's step-down procedure, False Discovery Rate correction).</li>
-      <li>Bootstrap: P-values estimated through repeated resampling techniques (e.g., Percentile Bootstrap, Bias-Corrected and Accelerated Bootstrap, Wild Bootstrap).</li>
-      <li>Small-sample correction: P-values adjusted for studies with limited sample sizes or a small number of clusters (e.g., Satterthwaite approximation, Welch's t-test).</li>
-      <li>Permutation tests: P-values calculated using random shuffling of data (e.g., Monte Carlo Permutation Procedure, randomization inference methods).</li>
-      <li>Unknown adjustment: P-values from any adjustment not explicitly described by the authors.</li>
-      <li>Other, specify</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">P-value of the estimate for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Display a table to capture multiple p-values by adjustment type where applicable.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter the p-value exactly as reported; leave blank if not reported.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">When multiple adjusted p-values are provided, capture each (e.g., unadjusted, covariate-adjusted, multiple-hypothesis corrections, bootstrap, small-sample, permutation, unknown, other).</span></li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Confidence interval</summary> 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Confidence interval for the treatment effect</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for the treatment effect, when SE, t-statistic and p-value are all answered with "-99" for non-binary outcomes. Repeat this for the treatment effect, when z-stat, SE, t-statistic and p-value are all answered with "-99" for binary outcomes. Please display two fields for this question. Lower bound [numeric value] Upper bound [numeric value]</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Confidence interval</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please enter the numerical values for the lower bound and upper bound of the confidence interval, using the exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>If there is no confidence interval reported for the treatment effect, please enter "-99" in both the "Lower bound" and "Upper bound".</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Confidence interval for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">0..n Optional and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Display two numeric fields for Lower bound and Upper bound. Ask only if SE, t/z-stat and p-value are all "-99".</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter the lower and upper bounds exactly as reported.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">If CI not reported, enter "-99" for both bounds.</span></li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Confidence interval significance level</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Significance level for confidence interval for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>95% confidence interval</li>
-      <li>90% confidence interval</li>
-      <li>80% confidence interval</li>
-      <li>Other, specify</li>
-      <li>Not reported</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for the treatment effect, when SE, t-statistic and p-value are all answered with "-99" for non-binary outcomes. Repeat this for the treatment effect, when z-stat, SE, t-statistic and p-value are all answered with "-99" for binary outcomes.</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">CI significance level</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Select the significance level for the confidence interval entered in the previous field, as indicated in the paper.</li>
-      <li>If there is no confidence interval reported for the treatment effect, please select "Not reported".</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Significance level for the confidence interval.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">95% confidence interval<br>90% confidence interval<br>80% confidence interval<br>Other, specify<br>Not reported</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">0..n Optional and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Ask in conjunction with Confidence interval when precision stats are otherwise unavailable.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content"><ul class="instruction-points"><li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Select the CI level indicated; choose "Not reported" if not specified.</span></li></ul></div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>F-Ratio</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>F-statistic of the estimate for treatment effect.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat this for every treatment effect reported using ANCOVA</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">F-statistic</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Enter the numerical value of the reported F-statistic for the treatment effect, in exact decimal places as reported in the table or in the text of the paper.</li>
-      <li>Only include this information if no other precision information is reported in the paper for the treatment effect.</li>
-      <li>Please note that it is possible that F-statistic is not reported for the estimate. If the paper does not provide a value, leave the cell blank.</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">F-statistic of the estimate for the treatment effect.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Optional and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Ask only when no other precision information is reported for the treatment effect.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content"><ul class="instruction-points"><li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter the F-statistic exactly as reported; leave blank if not reported.</span></li></ul></div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
-<div style="padding: 1rem;">
-  <h3>Additional precision information</h3>
-  <p><strong>Subsection notes:</strong> The following three questions are meant for you to include any information about any additional precision statistics reported by the authors that have not capture in the previous questions. An open-ended question will appear to encode the information, if any, you may want to report.</p>
+<div class="instruction-section" style="padding: 1rem;">
+  <h4 class="instruction-title">Additional precision information</h4>
+  <div class="instruction-content">
+    <p><strong>Subsection notes:</strong> The following three questions are meant for you to include any information about any additional precision statistics reported by the authors that have not been captured in the previous questions. An open-ended question will appear to encode the information, if any, you may want to report.</p>
+  </div>
 </div>
 
 <details>
 <summary>Additional precision value</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Enter the numeric precision value for the treatment effect using non-sample-based inference method.</p>
-    <h3>Response options</h3>
-    <p>Numeric</p>
-    <h3>Controlled Vocabulary</h3>
-    <p></p>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p></p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Additional precision value</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please enter each of the precision values estimated using non-sampling-based inference method for the treatment effect.</li>
-      <li>These values may not exist for all the papers and sometimes are reported in the appendix rather than the text. Please read the results section closely to see if there is any reference for those values.</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Numeric precision value estimated using non-sample-based inference.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Numeric</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">0..n Optional and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Ask when non-sampling-based precision statistics are reported.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content"><ul class="instruction-points"><li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Enter each non-sampling-based precision value if reported (often in appendix).</span></li></ul></div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Additional precision value type</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Select the type of the reported additional precision value.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Standard error</li>
-      <li>P-value</li>
-      <li>T-stat</li>
-      <li>Confidence interval, 95%</li>
-      <li>Confidence interval, 90%</li>
-      <li>Other, specify</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p></p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Additional precision value type</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please select the type of the non-sampling-based precision value reported for the treatment effect.</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Type of reported non-sampling-based precision value.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Standard error<br>P-value<br>T-stat<br>Confidence interval, 95%<br>Confidence interval, 90%<br>Other, specify</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">0..n Optional and repeatable</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content"><ul class="instruction-points"><li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Select the type corresponding to the value reported.</span></li></ul></div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
 <details>
 <summary>Additional precision value inference method</summary>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Select the inference method for the additional precision value.</p>
-    <h3>Response options</h3>
-    <p>Text-CV, select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Randomization inference</li>
-      <li>Adjustment for multiple inference</li>
-      <li>Non-parametric</li>
-      <li>Other</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>0..n Optional and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p></p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Additional precision inference method</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please enter each of the precision values estimated using non-sample-based inference method for the treatment effect.</li>
-      <li>These values may not exist for all the papers and sometimes are reported in the appendix rather than the text. Please read the results section closely to see if there is any reference for those values.</li>
-    </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Inference method used for the additional precision value.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV, select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Randomization inference<br>Adjustment for multiple inference<br>Non-parametric<br>Other</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">0..n Optional and repeatable</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content"><ul class="instruction-points"><li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Select the method reported for the additional precision value.</span></li></ul></div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>
 
-<div style="padding: 1rem;">
-  <h3>Subsection notes</h3>
+   <div class="instruction-section" style="padding: 1rem;">
+    <h4 class="instruction-title">Subsection notes</h4>
+    <div class="instruction-content">
   <p>The following questions ask the mean, standard deviation, and sample size for the outcome of the treatment effect. They loop through the study arms in comparison at baseline and at the period over which the treatment effect was estimated. Please read the prompts carefully before entering your answers.</p>
-  
   <p><strong>SurveyCTO instructions:</strong> For the evaluation arm, reference arm and the two arms combined, display the mean, Standard deviation, Standard error and Sample size question for each of them, at baseline and at the period (used to estimate the treatment effect). Please see a presentation of the questions in tables, which would be ideally how the questions presented without the limitations of SurveyCTO. [Please check if we can use this table grid plug-in https://github.com/surveycto/table-grid].</p>
-  
-  <p><strong>Table 1: Baseline</strong></p>
-  <table style="border-collapse: collapse; width: 100%;">
+    </div>
+  </div>
+  <div class="instruction-section" style="padding: 0 1rem;">
+    <h4 class="instruction-title" style="margin-left: 1rem;">Table 1: Baseline</h4>
+  <table style="border-collapse: collapse; width: calc(100% - 2rem); table-layout: fixed; margin-left: 1rem;">
+    <colgroup>
+      <col style="width: 24ch;">
+      <col>
+      <col>
+      <col>
+      <col>
+    </colgroup>
     <tr>
+        <th style="border: 1px solid #ddd; padding: 8px; width: 24ch;"></th>
       <th style="border: 1px solid #ddd; padding: 8px;">(1)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(2)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(3)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(4)</th>
     </tr>
     <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;">Mean</td>
       <td style="border: 1px solid #ddd; padding: 8px;">Standard deviation</td>
       <td style="border: 1px solid #ddd; padding: 8px;">Standard error</td>
       <td style="border: 1px solid #ddd; padding: 8px;">Sample Size (N)</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Eval arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Eval arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Reference arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Reference arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Eval+Reference combined</td>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Eval+Reference combined</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
     </tr>
   </table>
   
-  <p>A different format of Baseline outcome is reported [Yes/No] - If yes, specify the format of baseline outcome</p>
+  <div style="height: 1.5rem;"></div>
   
-  <p><strong>Table 2: {Period} (pulled from Stage 2 that is associated with the treatment effect)</strong></p>
-  <table style="border-collapse: collapse; width: 100%;">
+  <div class="instruction-section" style="padding: 0 1rem;">
+    <h4 class="instruction-title">Table 2: {Period} (pulled from Stage 2 that is associated with the treatment effect)</h4>
+  <table style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+    <colgroup>
+      <col style="width: 24ch;">
+      <col>
+      <col>
+      <col>
+      <col>
+    </colgroup>
     <tr>
+        <th style="border: 1px solid #ddd; padding: 8px; width: 24ch;"></th>
       <th style="border: 1px solid #ddd; padding: 8px;">(1)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(2)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(3)</th>
       <th style="border: 1px solid #ddd; padding: 8px;">(4)</th>
     </tr>
     <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;">Mean</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Standard Deviation</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Standard deviation</td>
       <td style="border: 1px solid #ddd; padding: 8px;">Standard error</td>
-      <td style="border: 1px solid #ddd; padding: 8px;">Sample Size(N)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Sample Size (N)</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Eval arm</td>
-      <td style="border: 1px solid #ddd; padding: 8px;"></td>
-      <td style="border: 1px solid #ddd; padding: 8px;"></td>
-      <td style="border: 1px solid #ddd; padding: 8px;"></td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Reference arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Eval arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;">Eval+Reference combined</td>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Reference arm</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
+      <td style="border: 1px solid #ddd; padding: 8px;"></td>
+      <td style="border: 1px solid #ddd; padding: 8px;"></td>
+      <td style="border: 1px solid #ddd; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; width: 24ch;">Eval+Reference combined</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
       <td style="border: 1px solid #ddd; padding: 8px;"></td>
@@ -10651,35 +11288,56 @@ Based on data source and time, there are 3 rounds of survey data, as they are co
   </table>
 </div>
 
+<p>A different format of Baseline outcome is reported [Yes/No] - If yes, specify the format of baseline outcome</p>
+
 <details>
 <summary>Baseline outcome variable format</summary> 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem;">
-  <div>
-    <h3>Level</h3>
-    <p>Treatment effect</p>
-    <h3>Definition</h3>
-    <p>Indicates whether the outcome variable was in the same format at baseline as it entered estimation.</p>
-    <h3>Response options</h3>
-    <p>Text-CV select one</p>
-    <h3>Controlled Vocabulary</h3>
-    <ul>
-      <li>Yes</li>
-      <li>No, specify the format at baseline</li>
-    </ul>
-    <h3>Cardinality (extraction)</h3>
-    <p>1..n Mandatory and repeatable</p>
-    <h3>Instruction for data entry mask</h3>
-    <p>Repeat for each treatment effect * baseline & period* contrast arms</p>
+<div class="field-container">
+  <div class="field-metadata">
+    <div class="metadata-section">
+      <h4 class="metadata-label">Field Name</h4>
+      <p class="metadata-value">Baseline outcome variable format</p>
   </div>
-  <div>
-    <h3>Instruction for coders (This will go to the "Hints" for surveyCTO)</h3>
-    <ul>
-      <li>Please indicate whether the unit of measurement of the outcome (that is specified in the prompt) was the same as reported at baseline.</li>
-      <li>In IDEAL, the default unit of measurement is the one that entered estimation. Sometimes, authors transformed the baseline outcome variable from the originally collected format into a unit more suitable for estimation, but they reported the baseline statistics for the outcome variable in the original unit. In that case, please select "No", and then specify the unit used at baseline.</li>
-      <li>Choose "Yes", if the same unit of measurement was used at baseline and in estimation.</li>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Level</h4>
+      <p class="metadata-value">Treatment effect</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Definition</h4>
+      <p class="metadata-value">Whether the outcome variable format at baseline matches the format used in estimation.</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Response Options</h4>
+      <p class="metadata-value">Text-CV select one</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">CV (Choices on SurveyCTO)</h4>
+      <p class="metadata-value">Yes<br>No, specify the format at baseline</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">Cardinality (extraction)</h4>
+      <p class="metadata-value">1..n Mandatory and repeatable</p>
+    </div>
+    <div class="metadata-section">
+      <h4 class="metadata-label">SurveyCTO instructions</h4>
+      <p class="metadata-value">Repeat for each treatment effect’s baseline and period contrast arms.</p>
+    </div>
+  </div>
+  <div class="field-instructions">
+    <div class="instruction-section">
+      <h4 class="instruction-title">Coding Instructions</h4>
+      <div class="instruction-content">
+        <ul class="instruction-points">
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Indicate whether the unit of measurement at baseline is the same as the one used in estimation.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">If authors report baseline statistics in a different unit (e.g., original raw scale) than used in estimation (e.g., standardized), select "No" and specify the baseline unit.</span></li>
+          <li class="instruction-point"><span class="point-icon">•</span><span class="point-text">Select "Yes" if the same unit is used at baseline and in estimation.</span></li>
     </ul>
-    <h3>Descriptive examples for coding</h3>
-    <p>See descriptive examples in paper.</p>
+      </div>
+    </div>
+    <div class="instruction-section">
+      <h4 class="instruction-title">Examples</h4>
+      <div class="example-cards"><div class="example-card"><div class="example-content"><p>See descriptive examples in paper.</p></div></div></div>
+    </div>
   </div>
 </div>
 </details>

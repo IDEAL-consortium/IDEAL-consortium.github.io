@@ -3,18 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-  IDEAL Metadata Schema
-  </title>
+  <title>IDEAL Metadata Schema</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ideal-style.css">
   <style>
     body {
       font-family: "Gill Sans", sans-serif;
-      margin: 2rem;
+      margin: 0;
       background-color: #f9f9f9;
+    }
+    /* Page-specific width override */
+    .main .container {
+      max-width: none;
+      width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
     h1 {
       color: #2c3e50;
     }
+    .main .container > h1 { margin-top: 1rem; margin-bottom: 1rem; text-align: center; }
     details {
       margin-bottom: 1.5rem;
       border: 1px solid #ccc;
@@ -36,6 +45,8 @@
       border-collapse: collapse;
       margin: 0;
     }
+    /* Spacing between intro paragraphs */
+    .schema-intro-spacer { margin-top: 1.5rem; }
     th:nth-child(3), td:nth-child(3) {
       min-width: 200px;
     }
@@ -100,39 +111,39 @@ a:hover {
   text-decoration: underline;
 }
     
- </style>
+  </style>
 </head>
-  
-<body id="top">
-<div  style="text-align: center">
-<img width="300px" src="/assets/images/logos/ideal.png">
-</div>
-<br>
-<a href="index.html" style="
-  display: inline-block;
-  margin: 20px 0;
-  padding: 10px 20px;
-  background-color: #7ec5bb;
-  color: #1f3366;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-">
-  ← Back to Home
-</a>
-	
 
-<h1>Metadata Schema</h1>
+<body>
+  <!-- Professional Navigation (Shared) -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <a href="index.html">
+            <img src="assets/images/logos/ideal.png" alt="IDEAL" class="nav-logo" />
+          </a>
+        </div>
+        <ul class="nav-menu"></ul>
+        <button class="nav-toggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <h1>Metadata Schema</h1>
 
 <p>The IDEAL Metadata Schema was developed to standardize the extraction of effect size data from randomized evaluations in international development. Despite the rapid growth of impact evaluations, the lack of consistent metadata formats has limited our ability to compare results across interventions, geographies, and outcomes. IDEAL fills this gap by providing a comprehensive schema—aligned with global standards like DDI, ClinicalTrials.gov, and the AEA RCT Registry— to systematically document key design features, intervention details, outcome measures, and treatment effects from published studies.</p>
 
-<p>This schema is the backbone of the Impact Data and Evidence Aggregation Library (IDEAL). By enabling consistent and structured data extraction, IDEAL supports large-scale meta-analyses, evidence reviews, and policy synthesis efforts. The schema is openly available here for public use, including researchers, evidence aggregators, and developers building tools to advance evidence-informed policymaking in low- and middle-income countries.</p>
+<p class="schema-intro-spacer">This schema is the backbone of the Impact Data and Evidence Aggregation Library (IDEAL). By enabling consistent and structured data extraction, IDEAL supports large-scale meta-analyses, evidence reviews, and policy synthesis efforts. The schema is openly available here for public use, including researchers, evidence aggregators, and developers building tools to advance evidence-informed policymaking in low- and middle-income countries.</p>
   
 <div style="text-align:right; margin:0.5rem;">
   <a href="#" onclick="window.print(); return false;">
-    📄 Click here to  <strong>download</strong> IDEAL Schema as PDF
+    Click here to <strong>download</strong> IDEAL Schema as PDF
   </a>
-</div>
+  </div>
 
 <details open id="section-1">
   <summary>1. Title and Publication Details</summary>
@@ -994,62 +1005,21 @@ a:hover {
 </details>
 
 
-<hr  style="color: #F1F1F1">
-    <p style="color: #63bfb2; margin: 0% 0% 0% 0%">IDEAL Consortium Members:</p>
-   
-    <div class="grid-container" style="margin: 0% 0% 0% 0%">
-    
-      <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://www.worldbank.org/en/research/brief/ideal"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/World_Bank_Group_logo.svg/300px-World_Bank_Group_logo.svg.png" style="object-fit: contain; width: 160px; " /></a>
-	   </div>
-      	</div>
-     </div>
-     
-     <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://www.worldbank.org/en/programs/sief-trust-fund"><img src="https://poverty-action.org/sites/default/files/atoms/image/2020/08/21/SIEF-Logo.jpg" style="object-fit: contain; width: 200px;" /></a>
-            </div>
-      	</div>
-     </div>
-     
-     <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://worldbank.scene7.com/is/image/worldbankprod/new-logo-1?wid=780&hei=439&qlt=85,0&resMode=sharp" style="object-fit: contain; width: 120px;" /></a>
-            </div>
-      	</div>
-     </div>
       
-      <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://cega.berkeley.edu/our-work/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/CEGA_Logo.png/800px-CEGA_Logo.png" style="object-fit: contain; width: 160px;" /></a>
-            </div>
-      	</div>
-     </div>
-        
-      <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://www.kellogg.northwestern.edu/academics-research/global-poverty-research-lab//"><img src="https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/8/4150/files/2020/02/GPRL_vertical-768x394.png" style="object-fit: contain; width: 150px;" /></a>
-            </div>
-      	</div>
-     </div>
-        
-      <div class="grid-item">
-        <div class="img-container">
-            <div class="fill">
-        		<a target="_blank" rel="noopener noreferrer" href="https://www.aidgrade.org"><img src="https://www.aidgrade.org/wp-content/uploads/2013/03/AidGrade-logo.jpg" style="object-fit: contain; width: 160px;" /></a>
-            </div>
-      	</div>
-     </div>
-     
-    </div> 
-<hr  style="color: #F1F1F1">
+    </div>
+  </main>
 
-</div>
+  <!-- Professional Footer (Shared) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content"></div>
+      <div class="footer-bottom"></div>
+    </div>
+  </footer>
+
+  <!-- Shared Scripts -->
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/ideal-script.js"></script>
 </body>
 </html>

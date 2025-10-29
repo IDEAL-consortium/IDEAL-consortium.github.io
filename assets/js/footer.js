@@ -21,7 +21,7 @@ class FooterManager {
                 type: 'links',
                 links: [
                     { href: 'codingprotocol.html', text: 'Coding Protocol' },
-                    { href: 'metadata.html', text: 'Metadata Schema' },
+                    { href: 'Schema_Index.html', text: 'Metadata Schema' },
                     { href: 'https://survey.wb.surveycto.com/index.html', text: 'SurveyCTO' },
                     { href: 'https://github.com/orgs/IDEAL-consortium/projects/11', text: 'Github Paper Tracking' }
                 ]

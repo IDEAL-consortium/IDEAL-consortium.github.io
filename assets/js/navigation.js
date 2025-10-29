@@ -5,7 +5,6 @@ class NavigationManager {
     constructor() {
         this.navItems = [
             { href: 'index.html', text: 'Home', active: false },
-            { href: 'https://ideal-coding-overview.streamlit.app/', text: 'Dashboard', active: false },
             { href: 'codingprotocol.html', text: 'Coding Protocol', active: false },
             { href: 'metadata.html', text: 'Metadata Schema', active: false },
             { 

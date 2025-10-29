@@ -5,8 +5,8 @@ class NavigationManager {
     constructor() {
         this.navItems = [
             { href: 'index.html', text: 'Home', active: false },
-            { href: 'codingprotocol.html', text: 'Coding Protocol', active: false },
             { href: 'metadata.html', text: 'Metadata Schema', active: false },
+            { href: 'codingprotocol.html', text: 'Coding Protocol', active: false },
             { 
                 href: 'coding-progress.html', 
                 text: 'Coding Progress', 

@@ -40,7 +40,7 @@ body {
 }
 
 .nav-brand {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #1a365d;
@@ -189,7 +189,7 @@ body {
 }
 
 .hero h1 {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -368,7 +368,7 @@ body {
 }
 
 .intro-title {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 2rem;
     font-weight: 600;
     color: #ffffff;
@@ -406,7 +406,7 @@ body {
 }
 
 .intro-card-header h3 {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #1a365d;
@@ -628,7 +628,7 @@ body {
 }
 
 .intro-section h4 {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: #1a365d;
@@ -653,7 +653,7 @@ body {
 }
 
 .section-title {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 2.5rem;
     color: #1a365d;
     margin-bottom: 1rem;
@@ -853,7 +853,7 @@ body {
 }
 
 .cta-title {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Gill Sans', sans-serif;
     font-size: 2.25rem;
     margin-bottom: 1rem;
     font-weight: 600;

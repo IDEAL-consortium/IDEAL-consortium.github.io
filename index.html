@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IDEAL Metadata Schema</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/ideal-style.css">
   <style>
  
@@ -286,19 +287,60 @@ strong {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 1100px;
     padding: 0 2rem;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.25rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     line-height: 1.2;
     color: #ffffff;
     font-family: inherit;
 }
+.hero-intro-spacer { margin-top: 1rem; }
+/* Set specific fonts for hero title, subtitle, and intro paragraphs */
+.hero-content h1,
+.hero-content p { font-family: 'Crimson Text', serif; }
+/* Different fonts for the two intro paragraphs */
+.hero-intro-1 { font-family: 'Inter', sans-serif; }
+.hero-intro-2 { font-family: 'Crimson Text', serif; }
+
+/* Ensure subtitle uses same white color and has matching shimmer effect */
+.hero-content p:first-of-type {
+    color: #ffffff;
+    position: relative;
+}
+.hero-content p:first-of-type::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(43, 108, 176, 0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+.hero-content p:first-of-type::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(43, 108, 176, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: gentlePulse 4s ease-in-out infinite;
+}
+/* Add spacing after subtitle before first intro paragraph */
+.hero-subtitle { margin-bottom: 1.5rem; }
+/* Force subtitle to solid white and disable shimmer overlays */
+.hero-subtitle, .hero-subtitle strong { color: #ffffff !important; }
+.hero-content p:first-of-type::before,
+.hero-content p:first-of-type::after { display: none !important; }
 
 .hero-content p {
     font-size: 1.2rem;
@@ -313,7 +355,7 @@ strong {
 }
 
 .sidebar {
-    width: 220px;
+    width: 260px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 0 10px 10px 0;
@@ -361,8 +403,10 @@ strong {
 
 .content {
     flex: 1;
-    padding: 40px;
+    padding: 20px 40px 40px;
 }
+/* Add spacing between paragraphs inside main content */
+.content p { margin-bottom: 1rem; }
 
 /* Removed old static footer logo grid styles */
 
@@ -493,7 +537,13 @@ html {
     <section class="hero">
         <div class="hero-content">
             <h1>Introducing IDEAL</h1>
-            <p>the Impact Data and Evidence Aggregation Library</p>
+            
+            <p class="hero-intro-1">
+                Welcome to IDEAL, the Impact Data and Evidence Aggregation Library, a platform designed to extract results data from international development RCTs and make them accessible to researchers and policymakers. The project is currently in a pilot phase, during which we extract information from a curated initial set of studies and develop robust protocols to grow and maintain IDEAL in the future.
+            </p>
+            <p class="hero-intro-spacer hero-intro-2">
+                IDEAL is supported by a global consortium of institutions. Hosted by the World Bank, IDEAL will be fully open-access and free for the world to use. Users will be able to easily search, compare, and visualize the relative effect sizes of different policy interventions on a range of outcomes, across countries and contexts.
+            </p>
         </div>
     </section>
 
@@ -502,21 +552,11 @@ html {
         <ul class="sidebar-links">            <!-- ← RESTORED: navigation list -->
             <li><a href="Schema_Index.html">IDEAL Metadata Schema</a></li>
             <li><a href="Stage_1_Protocol_Index.html">IDEAL Coding Protocol</a></li>
-            <li>Meet the IDEAL Team</li>
+            <li><a href="https://www.worldbank.org/en/programs/sief-trust-fund/brief/sief-ideal-project-description" target="_blank" rel="noopener noreferrer">Contact the IDEAL Team</a></li>
         </ul>
     </nav>
 
         <div class="content">
-            <p>
-                Hello and welcome to IDEAL, a platform designed to extract results data from international development RCTs and make them accessible to researchers and policymakers. The project is currently in a pilot phase, during which we extract information from a curated initial set of studies and develop robust protocols to grow and maintain IDEAL in the future.
-            </p>
-            <p>
-                IDEAL is supported by a global consortium of institutions. Hosted by the World Bank, IDEAL will be fully open-access and free for the world to use. Users will be able to easily search, compare, and visualize the relative effect sizes of different policy interventions on a range of outcomes, across countries and contexts. IDEAL will facilitate quantitative meta-analyses as well as qualitative reviews, whether centered on a policy, population, or outcome. 
-            </p>
-            <p>    
-                You can view the <strong><a href="Schema_Index.html">IDEAL metadata schema</a></strong> to see what data is collected and the detailed <strong><a href="Stage_1_Protocol_Index.html">coding protocol</a></strong> for the IDEAL survey, with guidance for our coders who are completing the data extraction.
-            </p>
-            <br>
             <p>
                 <strong>Motivation</strong>
             </p>
@@ -611,7 +651,13 @@ html {
         </div>
     </section>
 
-    
+    <!-- Professional Footer (Shared) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"></div>
+            <div class="footer-bottom"></div>
+        </div>
+    </footer>
 
     <script>
         // Header scroll effect
@@ -640,5 +686,8 @@ html {
             }
         });
     </script>
+    <!-- Shared Footer Script -->
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/ideal-script.js"></script>
 </body>
 </html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IDEAL Metadata Schema</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ideal-style.css">
+  <style>
+ 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; 
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+div.content h2 {
+  color: #1f3667;
+}
+strong {
+  color: #1f3667;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* NEW: pushes left and right apart */
+    gap: 2rem;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .logo {
+    color: #1f3667;
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+/* Logo image switching */
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo-icon .logo-white {
+    opacity: 1;
+}
+
+.logo-icon .logo-dark {
+    opacity: 0;
+}
+
+.header.scrolled .logo-icon .logo-white {
+    opacity: 0;
+}
+
+.header.scrolled .logo-icon .logo-dark {
+    opacity: 1;
+}
+
+.logo-tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .logo-tagline {
+    color: #1f3667;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+/* Search Form Styles */
+.search-wrapper {
+    position: relative;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-width: 300px;
+}
+
+.header.scrolled .search-form {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    color: white;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .search-input {
+    color: #1f3667;
+}
+
+.header.scrolled .search-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    padding: 0.75rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .search-button {
+    color: #1f3667;
+}
+
+.search-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Button Styles */
+.mobile-menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+}
+
+.header.scrolled .mobile-menu-button {
+    color: #1f3667;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    display: none;
+    z-index: 1001;
+    margin-top: 0.5rem;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #1f3667;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('assets/images/logos/Copilot-books.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Dark overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+    color: #ffffff;
+    font-family: inherit;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+    
+/* Main Layout */
+.main {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px; /* Adjust based on header height */
+}
+    
+.sidebar-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    margin: 17px 0;
+}
+
+.sidebar a {
+    color: #1f3366;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.sidebar a:hover {
+    color: #7ec5bb;
+}
+
+.sidebar-links li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: 1.07em;
+    transition: color 0.2s, background 0.2s;
+    padding: 0.4em 0.7em;
+    border-radius: 6px;
+}
+.sidebar-links li a:hover {
+    background: #f0f7f6;
+    color: #63bfb2;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+/* Removed old static footer logo grid styles */
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(31,54,103,0.07);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo-tagline {
+        display: none;
+    }
+
+    .search-form {
+        max-width: 200px;
+    }
+
+    .search-input {
+        width: 120px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .dropdown-menu {
+        right: -1rem;
+        left: auto;
+        min-width: 180px;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    /* Removed responsive rules for old footer grid */
+}
+
+@media (max-width: 480px) {
+    /* Removed responsive rules for old footer grid */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Rolling consortium logos styles are now sourced from assets/css/ideal-style.css */
+
+</style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="header-inner">
+                <div class="logo-wrapper">
+                   <a href="#" class="logo">
+                    <div class="logo-icon">
+                      <img src="ideal_logo_reversed.png" alt="IDEAL Logo" class="logo-white">
+                      <img src="ideal_logo.png" alt="IDEAL Logo" class="logo-dark">
+                    </div>
+                    <span class="logo-tagline">Impact Data and Evidence Aggregation Library</span>
+                  </a>
+                </div>
+                
+                <div class="header-buttons">
+                    <div class="search-wrapper">
+                        <form class="search-form" action="#" method="get">
+                            <input 
+                                class="search-input" 
+                                type="text" 
+                                placeholder="Search..." 
+                                name="s"
+                            >
+                            <button class="search-button" type="submit">
+                                <svg class="search-icon" viewBox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="dropdown-container">
+                        <button class="mobile-menu-button" id="menuButton">☰</button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="https://survey.wb.surveycto.com/" target="_blank">Access SurveyCTO</a>
+                            <a href="https://github.com/orgs/IDEAL-consortium/projects/11" target="_blank">Access GitHub Paper Tracking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Introducing IDEAL</h1>
+            <p>the Impact Data and Evidence Aggregation Library</p>
+        </div>
+    </section>
+
+  <div class="main">
+    <nav class="sidebar">                    <!-- ← RESTORED: sidebar container -->
+        <ul class="sidebar-links">            <!-- ← RESTORED: navigation list -->
+            <li><a href="Schema_Index.html">IDEAL Metadata Schema</a></li>
+            <li><a href="Stage_1_Protocol_Index.html">IDEAL Coding Protocol</a></li>
+            <li>Meet the IDEAL Team</li>
+        </ul>
+    </nav>
+
+        <div class="content">
+            <p>
+                Hello and welcome to IDEAL, a platform designed to extract results data from international development RCTs and make them accessible to researchers and policymakers. The project is currently in a pilot phase, during which we extract information from a curated initial set of studies and develop robust protocols to grow and maintain IDEAL in the future.
+            </p>
+            <p>
+                IDEAL is supported by a global consortium of institutions. Hosted by the World Bank, IDEAL will be fully open-access and free for the world to use. Users will be able to easily search, compare, and visualize the relative effect sizes of different policy interventions on a range of outcomes, across countries and contexts. IDEAL will facilitate quantitative meta-analyses as well as qualitative reviews, whether centered on a policy, population, or outcome. 
+            </p>
+            <p>    
+                You can view the <strong><a href="Schema_Index.html">IDEAL metadata schema</a></strong> to see what data is collected and the detailed <strong><a href="Stage_1_Protocol_Index.html">coding protocol</a></strong> for the IDEAL survey, with guidance for our coders who are completing the data extraction.
+            </p>
+            <br>
+            <p>
+                <strong>Motivation</strong>
+            </p>
+            <p>
+                The last few decades have seen explosive growth in randomized impact evaluations that seek to guide policy decision-making in low- and middle-income countries. IDEAL will contribute to translating the insights from multiple studies into <strong>actionable and credible policy insights</strong> by making the impact of different interventions easily comparable across studies. Beyond this core purpose, IDEAL will help guide the standardization of key information from randomized evaluations and unlock the potential to answer a wide range of methodological questions about RCTs.
+            </p>
+            <p>
+                <strong>Next Steps</strong>
+            </p>
+            <p>
+                Once IDEAL is established, we will invite others to join, guided by consistent protocols for adding new content and rigorous quality control. We will provide <strong>public access to IDEAL data</strong>, aided by a website that can filter studies by a wide range of criteria and display results immediately. We will also develop a set of pedagogical resources to make evidence aggregation methods widely accessible.
+            </p>
+        </div>
+    </div>
+
+    <!-- Rolling Logos Section -->
+    <section class="consortium-section">
+        <div class="consortium-scroll-container">
+            <div class="consortium-scroll-track">
+                <a href="https://www.worldbank.org/en/research/brief/ideal" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank Group">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/world-bank-group.png" class="consortium-organization-card__image" alt="World Bank Group" />
+                    </div>
+                </a>
+                <a href="https://www.worldbank.org/en/programs/sief-trust-fund" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="SIEF">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/sief.png" class="consortium-organization-card__image" alt="SIEF" />
+                    </div>
+                </a>
+                <a href="https://www.worldbank.org/en/about/unit/unit-dec/impactevaluation" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/world-bank.png" class="consortium-organization-card__image" alt="World Bank" />
+                    </div>
+                </a>
+                <a href="#" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="Development Research Group">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/drg.png" class="consortium-organization-card__image" alt="Development Research Group" />
+                    </div>
+                </a>
+                <a href="https://cega.berkeley.edu/our-work/" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="CEGA">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/cega.png" class="consortium-organization-card__image" alt="CEGA" />
+                    </div>
+                </a>
+                <a href="https://www.kellogg.northwestern.edu/academics-research/global-poverty-research-lab/" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="Global Poverty Research Lab">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/gprl.png" class="consortium-organization-card__image" alt="Global Poverty Research Lab" />
+                    </div>
+                </a>
+                <a href="https://www.aidgrade.org" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="AidGrade">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/aidgrade.png" class="consortium-organization-card__image" alt="AidGrade" />
+                    </div>
+                </a>
+                <!-- Duplicate for seamless scroll -->
+                <a href="https://www.worldbank.org/en/research/brief/ideal" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank Group">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/world-bank-group.png" class="consortium-organization-card__image" alt="World Bank Group" />
+                    </div>
+                </a>
+                <a href="https://www.worldbank.org/en/programs/sief-trust-fund" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="SIEF">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/sief.png" class="consortium-organization-card__image" alt="SIEF" />
+                    </div>
+                </a>
+                <a href="https://www.worldbank.org/en/about/unit/unit-dec/impactevaluation" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/world-bank.png" class="consortium-organization-card__image" alt="World Bank" />
+                    </div>
+                </a>
+                <a href="#" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="Development Research Group">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/drg.png" class="consortium-organization-card__image" alt="Development Research Group" />
+                    </div>
+                </a>
+                <a href="https://cega.berkeley.edu/our-work/" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="CEGA">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/cega.png" class="consortium-organization-card__image" alt="CEGA" />
+                    </div>
+                </a>
+                <a href="https://www.kellogg.northwestern.edu/academics-research/global-poverty-research-lab/" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="Global Poverty Research Lab">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/gprl.png" class="consortium-organization-card__image" alt="Global Poverty Research Lab" />
+                    </div>
+                </a>
+                <a href="https://www.aidgrade.org" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="AidGrade">
+                    <div class="consortium-organization-card__image-container">
+                        <img src="assets/images/logos/aidgrade.png" class="consortium-organization-card__image" alt="AidGrade" />
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menuButton').addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdownContainer = document.querySelector('.dropdown-container');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            
+            if (!dropdownContainer.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

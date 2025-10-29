@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+  IDEAL Metadata Schema
+  </title>
+  <style>
+    body {
+      font-family: "Gill Sans", sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    details {
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    summary {
+      background-color: #3c3d4a;
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: normal;
+      color: #FFFFFF;
+      border-bottom: 1px solid #ccc;
+    }
+    table {
+      border-left: 4px solid #3498db;
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+    th:nth-child(3), td:nth-child(3) {
+      min-width: 200px;
+    }
+    th:nth-child(6), td:nth-child(6),
+    th:nth-child(7), td:nth-child(7) {
+      min-width: 100px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+      vertical-align: top;
+      background-color: #fff;
+    }
+    th {
+      background-color: #f5c550;
+      color: #5D6D7E;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+    #toc {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+    #toc select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+    }
+    
+   .grid-container {
+  	display: grid;
+ 	 gap: 5px;
+ 	 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));;
+  	background-color: #FFFEFE;
+  	padding: 10px;
+	text-align: center;
+	vertical-align: middle;
+	place-items: center;
+   }
+  
+  a:link {
+  color: #5e807a;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #63bfb2;
+  background-color: transparent;
+  text-decoration: underline;
+}
+    
+ </style>
+</head>
+  
+<body id="top">
+<div  style="text-align: center">
+<img width="300px" src="ideal_logo.png">
+</div>
+<br>
+<a href="index.html" style="
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #7ec5bb;
+  color: #1f3366;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+">
+  ← Back to Home
+</a>
+	
+
+<h1>Metadata Schema</h1>
+
+<p>The IDEAL Metadata Schema was developed to standardize the extraction of effect size data from randomized evaluations in international development. Despite the rapid growth of impact evaluations, the lack of consistent metadata formats has limited our ability to compare results across interventions, geographies, and outcomes. IDEAL fills this gap by providing a comprehensive schema—aligned with global standards like DDI, ClinicalTrials.gov, and the AEA RCT Registry— to systematically document key design features, intervention details, outcome measures, and treatment effects from published studies.</p>
+
+<p>This schema is the backbone of the Impact Data and Evidence Aggregation Library (IDEAL). By enabling consistent and structured data extraction, IDEAL supports large-scale meta-analyses, evidence reviews, and policy synthesis efforts. The schema is openly available here for public use, including researchers, evidence aggregators, and developers building tools to advance evidence-informed policymaking in low- and middle-income countries.</p>
+  
+<div style="text-align:right; margin:0.5rem;">
+  <a href="#" onclick="window.print(); return false;">
+    📄 Click here to  <strong>download</strong> IDEAL Schema as PDF
+  </a>
+</div>
+
+<details open id="section-1">
+  <summary>1. Title and Publication Details</summary>
+  <p  style="margin: 1rem;"><em>This section captures basic bibliographic information about the study, including the full title, citation, and DOI or permanent URL. These details allow coders to link each extracted record to its original source.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Title</td>
+        <td>Paper</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/titl.html" target="_blank">DDI 2.5:</a></strong> Full authoritative title for the work at the appropriate level: marked-up document; marked-up document source; study; other material(s) related to study description; other material(s) related to study. The study title will in most cases be identical to the title for the marked-up document. A full title should indicate the geographic scope of the data collection as well as the time period covered. Title of data collection (codeBook/stdyDscr/citation/titlStmt/titl) maps to Dublin Core Title element. This element is required in the Study Description citation.<br>
+       <br>
+        <strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-identification" target="_blank">Clinical Trials:</a></strong> Official Title: The title of the clinical study, corresponding to the title of the protocol.
+        <td>The full title of the paper.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>- Can be automatically pulled into SurveyCTO.<br>- Include subtitle in the coding instruction.<br>- Tag if experiment was reported elsewhere.</td>
+      </tr>
+      <tr>
+        <td>Citation</td>
+        <td>Paper</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/biblCit.html" target="_blank">DDI 2.5:</a></strong> bib_citation: Complete bibliographic reference containing all of the standard elements of a citation that can be used to cite the study. The bib_citation_format is provided to enable specification of the particular citation style used, e.g., APA, MLA, or Chicago.<br>
+        <br>
+        <strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#references" target="_blank">Clinical Trials:</a></strong> Citation: A bibliographic reference in NLM's MEDLINE format.
+        <td>Complete bibliographic reference.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Can be automatically pulled into SurveyCTO.</td>
+      </tr>
+      <tr>
+        <td>DOI/URL</td>
+        <td>Paper</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/holdings.html" target="_blank">DDI 2.5:</a></strong> holdings: Information concerning either the physical or electronic holdings of the cited work. Attributes include: location--The physical location where a copy is held; callno--The call number for a work at the location specified; and URI--A URN or URL for accessing the electronic copy of the cited work.
+        <td>DOI or permanent URL to access the paper.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Can be automatically pulled into SurveyCTO.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-2">
+  <summary>2. Resources</summary>
+  <p style="margin: 1rem;"><em>This section tracks the supporting materials available for the study, such as datasets, analytic code, protocols, and ethics documentation.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Type of resource</td>
+        <td>Paper</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#references" target="_blank">Clinical Trials:</a></strong> Available IPD/Information Type: The type of data set or supporting information being shared. (Individual Participant Data Set, Study Protocol, Statistical Analysis Plan, Informed Consent Form, Clinical Study Report, Analytic Code, Other (specify))<br>
+	<br>
+        <strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/otherMat.html" target="_blank">DDI 2.5:</a></strong> otherMat: This section allows for the inclusion of other materials that are related to the study as identified and labeled by the DTD/Schema users (encoders). The' materials may be entered as PCDATA (ASCII text) directly into the document (through use of the "txt" element). This section may also serve as a "container" for other electronic materials such as setup files by providing a brief description of the study-related materials accompanied by the attributes "type" and "level" defining the material further. The "URI" attribute may be used to indicate the location of the other study-related materials. Other Study-Related Materials may include: questionnaires, coding notes, SPSS/SAS/Stata setup files (and others), user manuals, continuity guides, sample computer software programs, glossaries of terms, interviewer/project instructions, maps, database schema, data dictionaries, show cards, coding information, interview schedules, missing values information, frequency files, variable maps, etc.<br>
+        <td>The type of resource being shared.</td>
+        <td>Text-CV</td>
+        <td>a. Published data or data repository entry
+		<br>b. Analytic code
+		<br>c. Statistical Analysis Plan
+		<br>e. Populated pre-analysis plan
+		<br>f. Informed Consent Form or Consent Language
+		<br>g. Research ethics documentation (IRB protocol, structured ethics appendix, description of consent process, etc.)
+		<br>h. Clinical Study Report
+		<br>i. Study Protocol
+		<br>g. Academic publication or working paper
+		<br>h. Other (specify)</td>
+        <td>Used to identify shared data/code documentation for replication.</td>
+      </tr>
+      <tr>
+        <td>URL of resource</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#references" target="_blank">Clinical Trials:</a></strong> Available IPD/Information URL: The web address used to request or access the data set or supporting information.<br>
+		<br>
+		<strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/holdings.html" target="_blank">DDI 2.5:</a></strong> holdings: Information concerning either the physical or electronic holdings of the cited work. Attributes include: location--The physical location where a copy is held; callno--The call number for a work at the location specified; and URI--A URN or URL for accessing the electronic copy of the cited work.<br>
+        <td>URL to access the resource. Permanent URL (e.g. DOI) if available.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Permanent URLs like DOIs preferred.</td>
+      </tr>
+      <tr>
+        <td>Registration ID</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-identification" target="_blank">Clinical Trials:</a></strong> An identifier(s) (ID), if any, other than the organization's Unique Protocol Identification Number or the NCT number that is assigned to the clinical study. This includes any unique clinical study identifiers assigned by other publicly available clinical trial registries. If the clinical study is funded in whole or in part by a U.S. Federal Government agency, the complete grant or contract number must be submitted as a Secondary ID.<br>
+	<br>
+	<strong>AEA Registry:</strong> Secondary Identifying Numbers: An identifier(s), if any, other than the DOI or the AEARCT ID that is assigned to the trial. This includes any unique identifiers assigned by other publicly available trial registries, funders, or sponsors (e.g. ClinicalTrials.gov, ISRCT, etc.)
+        <td>Registration ID (unique identifier issued by the organization where the trial is registered).</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Used to cross-reference external trial registries.</td>
+      </tr>
+      <tr>
+        <td>Registry URL</td>
+        <td>Study</td>
+        <td><strong>AEA Registry:</strong> Links to any other related websites, documents, etc.<br>
+	<br>
+	<strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/holdings.html" target="_blank">DDI 2.5:</a></strong> holdings: Information concerning either the physical or electronic holdings of the cited work. Attributes include: location--The physical location where a copy is held; callno--The call number for a work at the location specified; and URI--A URN or URL for accessing the electronic copy of the cited work.
+        <td>Permanent URL or DOI to access the registration.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Used to verify pre-registration details.</td>
+      </tr>
+      <tr>
+        <td>Review board name</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-oversight" target="_blank">Clinical Trials:</a></strong> Full name of the approving human subjects review board.<br>
+        <td>The full name of the approving ethics review board.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Used to assess ethical oversight.</td>
+      </tr>
+      <tr>
+        <td>Review number</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-oversight" target="_blank">Clinical Trials:</a></strong> Number assigned by the human subjects review board upon approval of the protocol. May be omitted if status is anything other than approved.<br>
+        <td>The identifying number assigned by the ethics review board upon the approval of the study's protocol.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>May be omitted if protocol not approved.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-3">
+  <summary>3. Partners and Funders</summary>
+  <p style="margin: 1rem;"><em>This section records the organizations involved in funding, designing, or implementing the study.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Name of agency involved</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-sponsor-collaborators" target="_blank">Clinical Trials:</a></strong> CollaboratorName: Other organizations (if any) providing support. Support may include funding, design, implementation, data analysis or reporting. The responsible party is responsible for confirming all collaborators before listing them.</td>
+        <td>Name of the organization that supported or contributed to the study, including institutional affiliations of study authors.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Should include institutional affiliations.</td>
+      </tr>
+      <tr>
+        <td>Role of agencies</td>
+        <td>Study</td>
+        <td>No standard</td>
+        <td>Role(s) of the organization in the study.</td>
+        <td>Text-CV</td>
+        <td>Design, funding, data collection, etc.</td>
+	<td>CV for testing:
+		<br>- intervention implementation
+		<br>- study recruitment
+		<br>- data collection implementation
+		<br>- data provision
+		<br>- research design or analysis
+		<br>- funding or material support
+		<br>- Other</td>
+      </tr>
+      <tr>
+        <td>Type of agency</td>
+        <td>Study</td>
+        <td>No standard</td>
+        <td>Type of organization</td>
+        <td>Text-CV</td>
+        <td>CV needs work - should include:
+		<br>- Government agency
+		<br>- Statistical agency
+		<br>- For-profit organization
+		<br>- Non-profit, charitable foundation, or NGO
+		<br>- Independent academic or research institution
+		<br>- Other</td>
+        <td>Pilot the CV with the "other, specify" option.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-4">
+  <summary>4. Topics and Objectives</summary>
+  <p style="margin: 1rem;"><em>This section summarizes the substantive focus of the study. It includes both controlled topic classifications (e.g., development sector keywords) and author-selected keywords for flexible search and thematic grouping.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Topic of study</td>
+        <td>Study</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/topcClas.html" target="_blank">DDI 2.5:</a></strong>  topcClas: The classification field indicates the broad substantive topic(s) that the data cover. Library of Congress subject terms may be used here. The "vocab" attribute is provided for specification of the controlled vocabulary in use, e.g., LCSH, MeSH, etc. The "vocabURI" attribute specifies the location for the full controlled vocabulary. Maps to Dublin Core Subject element. Inclusion of this element in the codebook is recommended.
+ 	<br>
+	<br>CESSDA Controlled Vocabulary for CESSDA Topic Classification (recommended by World Bank Metadata Guidelines)
+        <td>The broad substantive topic(s) that the data cover.</td>
+        <td>Text-CV</td>
+        <td>CESSDA List of topics <a href="https://vocabularies.cessda.eu/vocabulary/TopicClassification">(codes)</a></td>
+        <td>Cardinality can be > 1.</td>
+      </tr>
+      <tr>
+        <td>Keywords</td>
+        <td>Study</td>
+        <td>No standard</td>
+        <td>List of keywords selected by the author.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Used for indexing and searchability.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-5">
+  <summary>5. Sampling</summary>
+  <p style="margin: 1rem;"><em>This section provides key information about how the study population was selected, randomized, and analyzed. It includes the unit of randomization and analysis, subnational locations, and baseline demographics like gender and age</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Country</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/nation.html" target="_blank">DDI 2.5:</a></strong> nation: Indicates the country or countries covered in the file. Attribute "abbr" may be used to list common abbreviations; use of ISO country codes is recommended. Maps to Dublin Core Coverage element. Inclusion of this element is recommended. For forward-compatibility, DDI 3 XHTML tags may be used in this element.</td>
+        <td>The country or countries where the study was implemented.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>ISO country codes, not reported, other</td>
+        <td>If single country study: automatically populate the country-entered study level to the treatment effect level. If multiple countries: enter the different countries at the treatment effect level.
+	<br>
+	<br>Add option to mention “other” and “did not report” for papers.
+	<br>
+	<br>Pilot to assess how many papers are reporting pooled treatment effect for multi country RCT.</td>
+      </tr>
+      <tr>
+        <td>Sub-national location</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/geogCover.html" target="_blank">DDI 2.5:</a></strong> geogCover: Information on the geographic coverage of the data. Includes the total geographic scope of the data, and any additional levels of geographic coding provided in the variables. Maps to Dublin Core Coverage element. Inclusion of this element in the codebook is recommended. Fpor forward-compatibility, DDI 3 XHTML tags may be used in this element.</td>
+        <td>Geographic location sampled within the country.</td>
+        <td>Open text (pilot)</td>
+        <td>—</td>
+        <td>If multiple countries are selected, the coder would enter the different types of locations at the treatment effect level.
+	<br>
+	<br>We can give examples such as villages in Busia, four cities in Indonesia, etc.</td>
+      </tr>
+      <tr>
+        <td>Unit of randomization</td>
+        <td>Arm</td>
+        <td><strong>AEA Registry:</strong> Randomization unit: This field describes the level at which randomization will take place: (e.g., individual, firm, school, experimental sessions). If there are more than one level of randomization, it should be explained (e.g. group level randomization for some treatment, and individual randomization for some treatments).
+	<br>
+	<br><strong><a href="https://clinicaltrials.gov/policy/results-definitions#participantFlow" target="_blank">Clinical Trials:</a></strong> Type of Units Assigned: If assignment is based on a unit other than participants, a description of the unit of assignment (for example, eyes, lesions, implants). Limit: 40 characters.</td>
+        <td>Unit at which randomization was done and treatment assigned.</td>
+        <td>Text-controlled vocabulary and open-text</td>
+        <td>See CV A in appendix B of Cavanagh et al (2023) <a href="https://documents1.worldbank.org/curated/en/099945502062327217/pdf/IDU081c960a8049b504197099ff0d12be0b95375.pdf"here></a>.</td>
+        <td>Start with controlled vocabulary from Cavanagh and amend in the pilot.</td>
+      </tr>
+      <tr>
+        <td>Unit of analysis</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#baselineCharacteristics" target="_blank">Clinical Trials:</a></a></strong> Type of Units Analyzed: If the analysis is based on a unit other than participants, a description of the unit of analysis (for example, eyes, lesions, implants).</td>
+        <td>Unit at which treatment effect was measured.</td>
+        <td>Text-controlled vocabulary and open-text</td>
+        <td>See CV A in appendix B of Cavanagh et al (2023) <a href="https://documents1.worldbank.org/curated/en/099945502062327217/pdf/IDU081c960a8049b504197099ff0d12be0b95375.pdf"here></a>.</td>
+        <td>Start with controlled vocabulary from Cavanagh and amend in the pilot.
+	<br>
+ 	<br>Pilot to assess cases where unit of randomization is different from unit of analysis.</td>
+      </tr>
+      <tr>
+        <td>Eligibility of experimental population</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#eligibility" target="_blank">Clinical Trials:</a></strong> Eligibility criteria: A limited list of criteria for selection of participants in the clinical study, provided in terms of inclusion and exclusion criteria and suitable for assisting potential participants in identifying clinical studies of interest. Use a bulleted list for each criterion below the headers "Inclusion Criteria" and "Exclusion Criteria".
+	<br>
+	<br><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/universe.html" target="_blank">DDI 2.5:</a></strong> universe: The group of persons or other elements that are the object of research and to which any analytic results refer. Age, nationality, and residence commonly help to delineate a given universe, but any of a number of factors may be involved, such as sex, race, income, veteran status, criminal convictions, etc. The universe may consist of elements other than persons, such as housing units, court cases, deaths, countries, etc. In general, it should be possible to tell from the description of the universe whether a given individual or element (hypothetical or real) is a member of the population under study. A "level" attribute is included to permit coding of the level to which universe applies, i.e., the study level, the file level (if different from study), the record group, the variable group, the nCube group, the variable, or the nCube level. The "clusion" attribute provides for specification of groups included (I) in or excluded (E) from the universe.
+	</td>
+        <td>Describes the criteria for eligibility of units in the study, provided in terms of inclusion and exclusion criteria.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Enter for:
+	<br>
+	<br>* Unit of randomization
+	<br>* Unit of analysis (This is why cardinality is 1..n)
+	<br>
+	<br>Eligibility, recruitment, sampling, and deviation fields all to be automatically triaged for verification.
+	<br>
+	<br>Open text for the pilot with responses such as – income, age, urban/rural. 
+</td>
+      </tr>
+      <tr>
+        <td>Recruitment of experimental sample</td>
+        <td>Study or arm</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#participantFlow" target="_blank">Clinical Trials:</a></strong> Recruitment details: Key information relevant to the recruitment process for the overall study, such as dates of the recruitment period and types of location (For example, medical clinic), to provide context.
+	</td>
+        <td>Description of the recruitment process for the overall study.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Enter for:
+	<br>* Unit of randomization
+	<br>* Unit of analysis
+	<br>
+	<br>Eligibility, recruitment, sampling, and deviation fields all to be automatically triaged for verification.
+	<br>
+	<br>Add a field to ask first if it was random or not, or mention in the code protocol to specified if it was random or not in this field.
+	<br>
+	<br>Random recruitment – Open text detail for the pilot 
+	<br>
+	<br>Non-random recruitment – Open text detail for the pilot with recruitment drives, applications, media announcements </td>
+      </tr>
+      <tr>
+        <td>Sampling from recruited</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-design" target="_blank">Clinical Trials:</a></strong> Allocation: The method by which participants are assigned to arms in a clinical trial.
+	<br>
+	<br> N/A (not applicable): For a single-arm trial
+	<br>Randomized: Participants are assigned to intervention groups by chance
+	<br>Nonrandomized: Participants are expressly assigned to intervention groups through a non-random method, such as physician choice
+</td>
+        <td>Describes how the unit was sampled from the eligible population/universe (after recruitment, if any).</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Randomized, Non-randomized, N/A</td>
+        <td>Enter for:
+	<br>* Unit of randomization
+	<br>* Unit of analysis
+	<br>
+	<br>Eligibility, recruitment, sampling, and deviation fields all to be automatically triaged for verification.</td>
+      </tr>
+      <tr>
+        <td>Deviation from sample inclusion</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#participantFlow" target="_blank">Clinical Trials:</a></strong> Pre-assignment Details: Description of significant events in the study (for example, wash out, run-in) that occur after participant enrollment, but prior to assignment of participants to an arm or group, if any. For example, an explanation of why enrolled participants were excluded from the study before assignment to arms or groups.
+</td>
+        <td>Description of deviation from the sample, prior to assignment of participants to an arm or group, if any.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Enter for: 
+	<br>* Unit of randomization
+	<br>* Unit of analysis
+	<br>
+	<br>Open text for the pilot with information on units that dropped from the sampling after inclusion (To assess how many papers report this)
+	<br>
+	<br>Eligibility, recruitment, sampling, and deviation fields all to be automatically triaged for verification.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-6">
+  <summary>6. Intervention</summary>
+  <p style="margin: 1rem;"><em>This section describes the intervention(s) tested in the study, including their content, assignment strategy, and duration. By mapping interventions to arms, this section supports the clear identification of experimental conditions.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Name of intervention</td>
+        <td>Treatment arm</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#arms-groups-interventions" target="_blank">Clinical Trials:</a></strong> Intervention Name: A brief descriptive name used to refer to the intervention(s) studied in each arm of the clinical study. A non-proprietary name of the intervention must be used, if available. If a non-proprietary name is not available, a brief descriptive name or identifier must be used.</td>
+        <td>A brief descriptive name used by the paper to refer to each intervention arm. </td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Build a controlled vocabulary for interventions after pilot with an "other" option.</td>
+      </tr>
+      <tr>
+        <td>Details of intervention</td>
+        <td>Treatment arm</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#arms-groups-interventions" target="_blank">Clinical Trials:</a></strong> Intervention Description: Details that can be made public about the intervention, other than the Intervention Name(s) and Other Intervention Name(s), sufficient to distinguish the intervention from other, similar interventions studied in the same or another clinical study. For example, interventions involving drugs may include dosage form, dosage, frequency, and duration.</strong>
+  	<br>
+  	<br> <strong>AEA Registry: This field provides a detailed summary of the intervention(s): what is the intervention(s), who is the target group of the intervention(s), and what is the intended purpose(s). This is a public field viewable to all, once the trial is registered.</strong></td>
+        <td>A detailed summary of the intervention for each intervention arm that helps to distinguish one intervention arm from another intervention arm.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Includes dosage, duration, method, etc.</td>
+      </tr>
+      <tr>
+        <td>Name of arm</td>
+        <td>Treatment arm</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#participantFlow" target="_blank">Clinical Trials:</a></strong> 
+	<br>Arm/Group Title: Descriptive label used to identify each arm or comparison group. 
+	<br>Note: "Arm" means a pre-specified group or subgroup of participant(s) in a clinical trial assigned to receive specific intervention(s) (or no intervention) according to a protocol.</td>
+        <td>Descriptive label used in the paper to identify each intervention arm.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Pilot to assess how papers report this.</td>
+      </tr>
+      <tr>
+        <td>Number of randomization units per arm</td>
+        <td>Treatment arm</td>
+        <td>No standard</td>
+        <td>The number of randomization units assigned to each intervention arm across all periods/phases.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>Pilot to assess how papers report this.</td>
+      </tr>
+      <tr>
+        <td>Mapping of intervention to arms</td>
+        <td>Treatment arm</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#arms-groups-interventions" target="_blank">Clinical Trials:</a></strong> Arm or Group/Interventional Cross-Reference: If multiple Arms or Groups have been specified, indicate which Interventions (or exposures) are in each Arm or Group of the study, using the Cross-Reference check boxes.</td>
+        <td>The link between interventions and arms.</td>
+        <td>Format</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Intervention assignment strategy</td>
+        <td>Study</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#study-design" target="_blank">Clinical Trials:</a></strong> Interventional Study Model: The strategy for assigning interventions to participants.
+	<br>
+	<br> -Single Group: Clinical trials with a single arm
+	<br> -Parallel: Participants are assigned to one of two or more groups in parallel for the duration of the study
+	<br> -Crossover: Participants receive one of two (or more) alternative interventions during the initial phase of the study and receive the other intervention during the second phase of the study
+	<br> -Factorial: Two or more interventions, each alone and in combination, are evaluated in parallel against a control group
+	<br>-Sequential: Groups of participants are assigned to receive interventions based on prior milestones being reached in the study, such as in some dose escalation and adaptive design studies</a></td>
+        <td>Description of strategy used in the paper to assign participants to each intervention arm. </td>
+        <td>CV</td>
+        <td>Simple Randomization;
+	<br>Complete Randomization;
+	<br>Stratified Randomization; 
+	<br>Cluster Randomization; Other</td>
+        <td>Pilot to assess how this is reported in the paper.</td>
+      </tr>
+      <tr>
+        <td>Timeline of intervention</td>
+        <td>Treatment arm</td>
+        <td><strong>AEA Registry:</strong> Intervention Start Date: The date that the intervention starts, or the date by which you expect the intervention to start. In the case in which you have several interventions that start at different times, this field gives you the lower time limit of all of them.
+	<br>Field Type: date (YYYY/MM/DD)
+	<br>Intervention End Date: The date that the intervention ends, or the planned end date of administering the intervention. In the case in which you have several interventions that end at different times, this field gives you the upper time limit of all of them. Field Type: date (YYYY/MM/DD)</td>
+        <td>The time period defined by the start date of intervention and the end date of intervention.</td>
+        <td>Start and end date format</td>
+        <td>—</td>
+        <td>Pilot to assess whether dates are reported more or month/year estimates.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-7">
+  <summary>7. Outcome</summary>
+  <p style="margin: 1rem;"><em>This section documents all outcome measures used to estimate treatment effects, including their names, tools, categories, and statistical properties.</em></p>
+  <table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Level</th>
+      <th>Relevant Standard</th>
+      <th>Definition</th>
+      <th>Response Options</th>
+      <th>Controlled Vocabulary</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name of the outcome measure</td>
+      <td>Outcome</td>
+      <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#outcome-measures" target="_blank">Clinical Trials:</a></strong> Outcome Measure Title: Name of the specific outcome measure.</strong></a></td>
+      <td>The name the author(s) uses for the outcome measure.</td>
+      <td>Open text</td>
+      <td>—</td>
+      <td>Should match terminology used in results section.</td>
+    </tr>
+    <tr>
+      <td>Outcome measure category</td>
+       <td>Outcome</td>
+      <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#outcome-measures" target="_blank">Clinical Trials:</a></strong> Outcome Measure Description: Additional information about the outcome measure, including a description of the metric used to characterize the specific outcome measure, if not included in the Outcome Measure Title.</td>
+	<td>Description of the metric used to characterize the specific outcome measure, if not included in the Outcome Measure Title.</td>
+        <td>Controlled vocabulary: Group to build.
+	<br>Examples such as: behavioral score, anthropometric measure, school test score</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+      <td>Outcome measurement tool</td>
+ 	<td>Outcome</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/protocol-definitions#outcome-measures" target="_blank">Clinical Trials:</a></strong> Outcome Measure Description: Additional information about the outcome measure, including a description of the metric used to characterize the specific outcome measure, if not included in the Outcome Measure Title.</td>
+        <td>Name of the specific tool used for measurement.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Add citation of the tool used if available.</td>
+    </tr>
+    <tr>
+       <td>Outcome measure statistical type</td>
+        <td>Treatment effect</td>
+        <td><strong>No standard:</strong> see notes for potential definition from Lipsey and Wilson (2000)</td>
+        <td>Indicates type of outcome measure: binary, continuous, categorical.</td>
+        <td>Controlled vocabulary: inherently dichotomous (proportions, odds ratio), inherently continuous (continuous, artificially dichotomized), dichotomous (probit), dichonomous (logit)</td>
+        <td>Lipsey and Wilson (2000). Practical Meta-Analysis. SAGE publications, Inc. 
+		<br>
+		<br>Figure 3.1 (pp. 58) Effect size decision tree for studies involving group contrasts on dependent variables
+		<br>Table 3.2 (pp. 72) Effect size, standard erro and inverse variance weight formulas for each effect size type
+	</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Outcome measure standardized</td>
+        <td>Outcome or treatment effect</td>
+        <td><strong>No standard</strong></td>
+        <td>Indicates whether the outcome measure is standardized.</td>
+        <td>Yes/No/Don't know</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Standardization description</td>
+        <td>Outcome or treatment effect</td>
+        <td><strong>No standard</strong></td>
+        <td>Indicates how the outcome measure was standardized.</td>
+        <td>Open text extracted from the paper for the pilot.</td>
+        <td>>Pilot to assess how this is reported in papers.</td>
+        <td>Pilot to assess how this is reported in papers.</td>
+      </tr>
+      <tr>
+        <td>Outcome measure coding</td>
+        <td>Outcome</td>
+        <td><strong>No standard</strong></td>
+        <td>Indicates whether the outcome suggests an overall positive and desirable impact according to the author.</td>
+        <td>Select one: Yes/No/Ambiguous/Don't know</td>
+        <td>>Pilot to assess how this is reported in papers.</td>
+        <td>Pilot to assess how this is reported in papers.</td>
+      </tr>
+      <tr>
+        <td>Outcome data source</td>
+        <td>Outcome</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/dataKind.html" target="_blank">DDI 2.5:</a></strong>  dataKind: The type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, etc. This element maps to Dublin Core Type element. The type attribute can be used for forward-compatibility with DDI 3, by providing a type for use of controlled vocabulary, as this is descriptive in DDI 2 and CodeValue in DDI 3.</td>
+        <td>Describes type of data used to measure the outcome.</td>
+        <td>Controlled variable: survey, census, etc. (Needs to be developed) or DDI CV: Sample survey data, Census/enumeration data, Administrative records data, Aggregate data, Clinical data, Event/transaction data, Observation data/ratings, Process-produced data, Time-budget diaries, Choice experiment for preference elicitation, Economic games with participant interaction, Measurement and tests, Textual data, Others</td>
+        <td>Sample survey data, Census/enumeration data, Administrative records data, Aggregate data, Clinical data, Event/transaction data, Observation data/ratings, Process-produced data, Time-budget diaries, Choice experiment for preference elicitation, Economic games with participant interaction, Measurement and tests, Textual data, Others</td>
+        <td>Pilot to assess whether data sources are clearly reported.</td>
+      </tr>
+      <tr>
+        <td>Outcome measure collection start date</td>
+        <td>Outcome</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/collDate.html" target="_blank">DDI 2.5:</a></strong> collDate: Contains the date(s) when the data were collected. Use the event attribute to specify "start", "end", or "single" for each date entered. The ISO standard for dates (YYYY-MM-DD) is recommended for use with the "date" attribute. The "cycle" attribute permits specification of the relevant cycle, wave, or round of data. Maps to Dublin Core Coverage element. Inclusion of this element in the codebook is recommended.</td>
+        <td>Specifies start date of data collection for the outcome.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Coding protocol:
+	<br>*Add to the data source roster
+ 	<br>*Add option of not provided</td>
+      </tr>
+      <tr>
+        <td>Outcome measure collection end date</td>
+        <td>Outcome</td>
+        <td><strong><a href="https://docs.ddialliance.org/DDI-Codebook/2.5/xmlschema/schemas/codebook_xsd/elements/collDate.html" target="_blank">DDI 2.5:</a></strong> collDate: Contains the date(s) when the data were collected. Use the event attribute to specify "start", "end", or "single" for each date entered. The ISO standard for dates (YYYY-MM-DD) is recommended for use with the "date" attribute. The "cycle" attribute permits specification of the relevant cycle, wave, or round of data. Maps to Dublin Core Coverage element. Inclusion of this element in the codebook is recommended.</td>
+        <td>Specifies end date of data collection for the outcome.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Coding protocol:
+	<br>*Add to the data source roster
+ 	<br>*Add option of not provide</td>
+      </tr>
+      <tr>
+        <td>Outcome mean</td>
+        <td>Outcome*Treatment Arm*round</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong> Measure Type: The type of data for the outcome measure. Select one. (Count of Participants, Mean, Median, Least Squares Mean, Geometric Mean, Geometric Least Squares Mean, Number, Count of Units)</td>
+        <td>Specifies the reported outcome quantity such as average, size, or count.</td>
+        <td>Numeric</td>
+        <td>Select one. (Count of Participants, Mean, Median, Least Squares Mean, Geometric Mean, Geometric Least Squares Mean, Number, Count of Units)</td>
+        <td>Coding protocol should list what other information needs to be extracted if all three (mean, SD, N) not available.</td>
+      </tr>
+      <tr>
+        <td>Outcome SD</td>
+        <td>Outcome*Treatment Arm*round</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong> Measure of Dispersion/Precision Select one. Not Applicable (only if Measure Type is "Number," "Count of Participants," or "Count of Units"), Standard Deviation, Standard Error, Inter-Quartile Range, Full Range, 80% Confidence Interval, 90% Confidence Interval, 95% Confidence Interval, 97.5% Confidence Interval, 99% Confidence Interval, Other Confidence Interval Level, Geometric Coefficient of Variation (only when Measure Type is "Geometric Mean")</td>
+        <td>Specifies amount of dispersion in the outcome.</td>
+        <td>Numeric</td>
+        <td>Select one. Not Applicable (only if Measure Type is "Number," "Count of Participants," or "Count of Units"), Standard Deviation, Standard Error, Inter-Quartile Range, Full Range, 80% Confidence Interval, 90% Confidence Interval, 95% Confidence Interval, 97.5% Confidence Interval, 99% Confidence Interval, Other Confidence Interval Level, Geometric Coefficient of Variation (only when Measure Type is "Geometric Mean")</td>
+        <td>Coding protocol should list what other information needs to be extracted if all three (mean, SD, N) not available.</td>
+      </tr>
+      <tr>
+        <td>Outcome sample size</td>
+        <td>Outcome*Treatment Arm*round</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong> Number of Participants Analyzed: The number of participants analyzed for the outcome measure in the row and for each arm/group, if different from the overall Number of Participants Analyzed.
+	
+	<br>Number of Units Analyzed: The number of units analyzed for the outcome measure in the row and for each arm/group, if different from the overall Number of Units Analyzed.</td>
+        <td>Number of units analyzed to measure the outcome.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>Coding protocol should list what other information needs to be extracted if all three (mean, SD, N) not available.</td>
+      </tr>
+      <tr>
+        <td>Additional information for clustered RCTs</td>
+        <td>Outcome*Treatment Arm*round*cluster</td>
+        <td><strong>AEA Registry:</strong> Was the treatment clustered: This field asks whether the treatment was clustered into groups for the randomization (as opposed to being randomized by individual subjects).
+		<br> ○ Yes; No
+		<br> Planned Number of Clusters (unit of randomization): This field describes how many groupings or clusters will be sampled, and asks to define the cluster unit (e.g. 200 schools).
+		<br> Sample size (or number of clusters) by treatment arms: This field describes the sample size or clusters by treatment arms. 
+		<br> Arm type(s) identify the role of the intervention that participants receive. Types of arms include experimental arm(s) and no intervention arm. For example, the trial includes 50 schools in the control, 50 schools receive the teacher training treatment, 50 schools receive the scholarship treatment, and 50 schools receive both treatments.
+</td>
+        <td>Additional details on treatment clustering, if applicable.</td>
+        <td>Numeric: In addition to mean, sd, sample size by cluster for each arm, for each wave, a subset of the following information: 
+	<br>
+	<br> *Number of clusters
+	<br> *Number of observations per cluster
+	<br> *Cluster robust standard error
+	<br> *Intra-cluster correlation (or statistics to retrieve ICC)
+	<br> *Degree of freedom (for small number of clusters)</td>
+        <td>Coding protocols to set up a priority list and stopping rule. All of this information is not required. 
+	<br> 
+	<br> Pilot to see how widely ICC (or necessary stats to retrieve ICC) is reported in papers. </td>
+        <td>Coding protocols to set up a priority list and stopping rule. All of this information is not required.
+	<br> 
+	<br>Pilot to see how widely ICC (or necessary stats to retrieve ICC) is reported in papers
+</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<details id="section-8">
+  <summary>8. Estimates</summary>
+  <p><em>This section captures the effect sizes reported by the authors, along with information about the estimation strategy, statistical tests, precision, and subgroup analyses.</em></p>
+  <table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Level</th>
+      <th>Relevant Standard</th>
+      <th>Definition</th>
+      <th>Response Options</th>
+      <th>Controlled Vocabulary</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td>Estimation parameter</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Estimation parameter: Select one. (Cox Proportional Hazard, Hazard Ratio (HR), Hazard Ratio, Log Mean Difference (Final Values), Mean Difference (Net), Median Difference (Final Values), Median Difference (Net), Odds Ratio (OR), Odds Ratio, Log, Risk Difference (RD), Risk Ratio (RR), Risk Ratio, Log Slope, Other)<br><br>Other Parameter Name: The name of the estimation parameter, if \"Other\" Estimation Parameter is selected.<br><br>Estimated Value: The calculated value for the estimation parameter.</td>
+        <td>The name of the estimation parameter used to calculate the treatment effect.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Cox Proportional Hazard, Hazard Ratio (HR), Log Hazard Ratio, Log Mean Difference (Final Values), Mean Difference (Net), Median Difference (Final Values), Median Difference (Net), Odds Ratio (OR), Odds Ratio, Log, Risk Difference (RD), Risk Ratio (RR), Risk Ratio, Log Slope, cohen'd, hedges' g, other(specify)</td>
+        <td>Use the value options in Clinical Trials for pilot and refine the CV afterwards. Some options are more common and some are specific to clinical trials.<br><br>Pilot the stopping rule: starting with the standard formulas for effect sizes to see how much information papers usually report.</td>
+      </tr>
+    <tr>
+       <td>Estimand</td>
+        <td>Treatment effect</td>
+        <td>No standard / [Standard found in an addeddum to Clinical Trials E9(R1)]. 
+	<br><strong><a href="https://www.fda.gov/media/148473/download" target="_blank">Clinical Trials E9(R1):</a></strong><br><br>An estimand is a precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarizes at a population level what the outcomes would be in the same patients under different treatment conditions being compared.</td>
+        <td>Description of the treatment effect under which the outcome is being estimated.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Intent-to-Treat (ITT), Treatment-on-the-Treated (TOT), not stated (implied TOT), not stated (implied ITT)</td>
+        <td>Can add \"Not sure/Not stated\" to the pilot CV.</td>
+    </tr>
+    <tr>
+      <td>Null hypothesis</td>
+       <td>Treatment effect</td>
+      <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br>Type of statistical test: Identifies the type of analysis (Superiority, Non-inferiority, Equivalence, Other (for example, single group or other descriptive analysis), Non-Inferiority or Equivalence (legacy selection), Superiority or Other (legacy selection)).</td>
+        <td>The mathematical expression of the null hypothesis being tested for the treatment effect.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Null=1, Null=0, Null>0, Null<0, Null=constant</td>
+        <td>This is often not reported explicitly in a paper. Coders may need additional training on how to identify the null hypothesis.</td>
+    </tr>
+    <tr>
+      <td>Statistical test of hypothesis</td>
+      <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Method: The statistical test used to calculate the p-value, if a P-Value is reported. Select one. (ANCOVA, ANOVA, Chi-Squared, Chi-Squared (Corrected), Cochran-Mantel-Haenszel, Fisher Exact, Kruskal-Wallis, Log Rank, Mantel Haenszel, McNemar, Mixed Models Analysis, Regression (Cox, Linear, Logistic), Sign Test, t-Test (1-Sided, 2-Sided), Wilcoxon (Mann-Whitney), Other).</td>
+        <td>The statistical test used to estimate the treatment effect.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>ANCOVA, ANOVA, Chi-Squared, Chi-Squared (Corrected), Cochran-Mantel-Haenszel, Fisher Exact, Kruskal-Wallis, Log Rank, Mantel Haenszel, McNemar, Mixed Models Analysis, Regression (Cox, Linear, Logistic), Sign Test, t-Test (1-Sided, 2-Sided), Wilcoxon (Mann-Whitney), Other (specify).</td>
+        <td>Use the value options in Clinical Trials for pilot and refine the CV afterwards. Some options are more common and some are specific to clinical trials.</td>
+      </tr>
+    </tr>
+    <tr>
+      <td>Contrast for the treatment effect</td>
+     <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>When describing the Statistical Analysis:<br><br>Comparison Group Selection: The arms or comparison groups involved in the statistical analysis (check all to indicate an \"omnibus\" analysis).</td>
+        <td>Description of the treatment and control groups involved in the estimation of the treatment effect.</td>
+        <td>Open-text</td>
+        <td>—</td>
+        <td>Pilot to assess how this is reported in papers.<br><br>Consider building controlled vocabularies using previous fields on treatment arms.</td>
+    </tr>
+    <tr>
+      <td>Estimate of the treatment effect</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Estimated Value: The calculated value for the estimation parameter.</td>
+        <td>The reported numeric value for the estimation parameter of the treatment effect.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>Specify which “default” specification to include (e.g., no controls except strata indicators, or no controls except strata and baseline value).<br><br>We also need a rule on what to do when coefficient is reported for raw values and then another column converts coefficient to d or \"effect size\".</td>
+    </tr>
+    <tr>
+    <td>Unit of measure of the treatment effect</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Unit of Measure: An explanation of what is quantified by the data (for example, participants, mm Hg), for each outcome measure.</td>
+        <td>The unit of measure of the outcome estimated in the treatment effect.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>A controlled vocabulary to be developed after the pilot.</td>
+      </tr>
+      <tr>
+        <td>Precision</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Measure of Dispersion/Precision. Select one. (Not Applicable (only if Measure Type is \"Number,\" \"Count of Participants,\" or \"Count of Units\"), Standard Deviation, Standard Error, Inter-Quartile Range, Full Range, 80% Confidence Interval, 90% Confidence Interval, 95% Confidence Interval, 97.5% Confidence Interval, 99% Confidence Interval, Other Confidence Interval Level, Geometric Coefficient of Variation (only when Measure Type is \"Geometric Mean\").<br><br>Other Confidence Interval Level: The numerical value for the confidence interval level, if \"Other Confidence Interval Level\" is selected. Provide a rationale for choosing this level in the Outcome Measure Description.</td>
+        <td>The measures of precision reported for the treatment effect.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Consensus on creating a stopping rule for the minimum set based on all possible values available.<br><br>Specify a preference priority.</td>
+        <td>—</td>
+    </tr>
+    <tr>
+      <td>Precision value</td>
+        <td>Treatment effect</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#outcomeMeasures" target="_blank">Clinical Trials:</a></strong><br><br>Measure of Dispersion/Precision. Select one. (Not Applicable (only if Measure Type is \"Number,\" \"Count of Participants,\" or \"Count of Units\"), Standard Deviation, Standard Error, Inter-Quartile Range, Full Range, 80% Confidence Interval, 90% Confidence Interval, 95% Confidence Interval, 97.5% Confidence Interval, 99% Confidence Interval, Other Confidence Interval Level, Geometric Coefficient of Variation (only when Measure Type is \"Geometric Mean\").<br><br>Other Confidence Interval Level: The numerical value for the confidence interval level, if \"Other Confidence Interval Level\" is selected. Provide a rationale for choosing this level in the Outcome Measure Description.</td>
+        <td>The numeric value of the precision measures.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>—</td>
+    </tr>
+    <tr>
+      <td>Subgroup of heterogeneous analysis</td>
+        <td>Treatment effect</td>
+        <td><strong>CONSORT:</strong><br><br>Description of any other analyses performed, including subgroup analyses and adjusted analyses, distinguishing pre-specified from exploratory.</td>
+        <td>Variables used to characterize subgroups for heterogeneous analysis.</td>
+        <td>Text-controlled vocabulary</td>
+        <td>Age, gender, income, other (specify)</td>
+        <td>Develop a controlled vocabulary after pilot.<br><br>Select all variables that apply for each analysis. For example, select both gender and income for an analysis by \"women with income > 100 USD per day\".</td>
+      </tr>
+      <tr>
+        <td>Description of heterogeneous analysis</td>
+        <td>Treatment effect</td>
+        <td><strong>CONSORT:</strong><br><br>Description of any other analyses performed, including subgroup analyses and adjusted analyses, distinguishing pre-specified from exploratory.</td>
+        <td>Description of the heterogeneous analysis performed by subgroup variables.</td>
+        <td>Open text</td>
+        <td>—</td>
+        <td>Describe the specifications used to estimate heterogeneous effects (such as interaction term or subsample) or any other information as needed.</td>
+      </tr>
+  </tbody>
+</table>
+</details>
+
+<details id="section-9">
+  <summary>9. Quality and Robustness</summary>
+  <p style="margin: 1rem;"><em>This section captures how the study accounts for validity threats such as attrition, imbalance, and compliance, and whether key checks and covariates were reported in the analysis.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Attrition</td>
+        <td>Treatment arm*round</td>
+        <td><strong><a href="https://clinicaltrials.gov/policy/results-definitions#participantFlow" target="_blank">Clinical Trials:</a></strong><br><br>Per arm and per period:<br>Started: Number of participants initiating the period. In the first period, it is the number of participants assigned to each arm or group. If assignment is based on a unit other than participants, also include the number of units at the beginning of the period.<br>Completed: Number of participants at the end of the period. If assignment is based on a unit other than participants, also include the number of units at the end of the period.<br>Not Completed (calculated automatically): Number of participants (and units, if applicable) that did not complete the study or period. This is calculated automatically by subtracting Completed from Started.</td>
+        <td>Share of units of analysis that dropped out of study after treatment assignment, per arm and round.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>This incorporates two different concepts: survey nonresponse and item nonresponse. In the pilot, we should monitor how to address this.<br><br>We should also monitor whether we might need to ask a question "Is attrition reported?" Some papers may not report attrition but still experience it. There are papers where: (1) there is no attrition, (2) there is attrition but it is not reported, and (3) there is attrition and it is reported.</td>
+      </tr>
+      <tr>
+        <td>Balance test</td>
+        <td>Study</td>
+        <td><strong>No standard</strong></td>
+        <td>Indicates whether authors include a balance table of treatment conditions at baseline.</td>
+        <td>Select one (Yes/No/Not reported/Don't know)</td>
+        <td>—</td>
+        <td>Monitor in pilot if authors state treatment conditions are balanced but do not include a balance test.<br><br>If this occurs, we may need to ask two separate questions in the data entry mask: (1) Do authors state treatment conditions are balanced? (2) Do they include a balance table?<br><br>Also monitor how this connects with steps taken to address attrition.</td>
+      </tr>
+      <tr>
+        <td>Compliance Control</td>
+        <td>Treatment arm</td>
+        <td><strong>CONSORT:</strong><br><br>Compliance measures the share of the control group who actually received the treatment.</td>
+        <td>Share of control group who received any part of the treatment.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>We may need to break this into two questions in the data entry mask: (1) Did authors report compliance? (2) What was the share?</td>
+      </tr>
+      <tr>
+        <td>Compliance Treatment</td>
+        <td>Treatment arm</td>
+        <td><strong>CONSORT:</strong><br><br>Compliance measures the share of the treatment group who actually received the treatment.</td>
+        <td>Share of treatment group who received any part of the treatment.</td>
+        <td>Numeric</td>
+        <td>—</td>
+        <td>In the pilot, monitor the various ways this can be reported and think about how to standardize.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<details id="section-10">
+  <summary>10. Coding Tool Version</summary>
+  <p style="margin: 1rem;"><em>This section tracks the version of the metadata collection tool used to extract the study's metadata, to ensure traceability and reproducibility of entries over time.</em></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Level</th>
+        <th>Relevant Standard</th>
+        <th>Definition</th>
+        <th>Response Options</th>
+        <th>Controlled Vocabulary</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Coding tool name and version</td>
+        <td>Study</td>
+        <td><strong>No standard</strong></td>
+        <td>The name and version of the metadata collection tool used to populate a particular record.</td>
+        <td>CV</td>
+        <td>a. IDEAL 1.0 2024</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+
+<hr  style="color: #F1F1F1">
+    <p style="color: #63bfb2; margin: 0% 0% 0% 0%">IDEAL Consortium Members:</p>
+   
+    <div class="grid-container" style="margin: 0% 0% 0% 0%">
+    
+      <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://www.worldbank.org/en/research/brief/ideal"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/World_Bank_Group_logo.svg/300px-World_Bank_Group_logo.svg.png" style="object-fit: contain; width: 160px; " /></a>
+	   </div>
+      	</div>
+     </div>
+     
+     <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://www.worldbank.org/en/programs/sief-trust-fund"><img src="https://poverty-action.org/sites/default/files/atoms/image/2020/08/21/SIEF-Logo.jpg" style="object-fit: contain; width: 200px;" /></a>
+            </div>
+      	</div>
+     </div>
+     
+     <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://worldbank.scene7.com/is/image/worldbankprod/new-logo-1?wid=780&hei=439&qlt=85,0&resMode=sharp" style="object-fit: contain; width: 120px;" /></a>
+            </div>
+      	</div>
+     </div>
+      
+      <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://cega.berkeley.edu/our-work/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/CEGA_Logo.png/800px-CEGA_Logo.png" style="object-fit: contain; width: 160px;" /></a>
+            </div>
+      	</div>
+     </div>
+        
+      <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://www.kellogg.northwestern.edu/academics-research/global-poverty-research-lab//"><img src="https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/8/4150/files/2020/02/GPRL_vertical-768x394.png" style="object-fit: contain; width: 150px;" /></a>
+            </div>
+      	</div>
+     </div>
+        
+      <div class="grid-item">
+        <div class="img-container">
+            <div class="fill">
+        		<a target="_blank" rel="noopener noreferrer" href="https://www.aidgrade.org"><img src="https://www.aidgrade.org/wp-content/uploads/2013/03/AidGrade-logo.jpg" style="object-fit: contain; width: 160px;" /></a>
+            </div>
+      	</div>
+     </div>
+     
+    </div> 
+<hr  style="color: #F1F1F1">
+
+</div>
+</body>
+</html>

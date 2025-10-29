@@ -1,3 +1,69 @@
+/* === Metadata Schema Palette Overrides === */
+
+/* Background and Base Text */
+body {
+  background-color: #f9f9f9;
+  color: #2c3e50;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: #2c3e50;
+}
+
+/* Section Headers (e.g., nav, footer) */
+.nav, .footer {
+  background-color: #3c3d4a;
+  color: #ffffff;
+}
+
+.nav a, .footer a {
+  color: #ffffff;
+}
+
+/* Table Headers (if used) */
+th {
+  background-color: #f5c550;
+  color: #5D6D7E;
+}
+
+/* Links */
+a:link {
+  color: #5e807a;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #63bfb2;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #7ec5bb;
+  color: #1f3366;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: #63bfb2;
+  color: #1f3366;
+  transform: translateY(-1px);
+}
+
+/* Optional: Secondary Button */
+.btn-secondary {
+  background-color: #ffffff;
+  color: #5e807a;
+  border: 1px solid #cbd5e0;
+}
+
+.btn-secondary:hover {
+  background-color: #f5f5f5;
+  color: #63bfb2;
+  border-color: #63bfb2;
+}
+
 /* IDEAL Platform - Professional Stylesheet */
 
 /* Reset and Base Styles */

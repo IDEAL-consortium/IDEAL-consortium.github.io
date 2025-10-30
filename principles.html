@@ -1,1 +1,78 @@
-[placeholder]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDEAL Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ideal-style.css">
+  <style>
+    .page-header {
+      padding: 110px 0 24px;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      margin-top: 70px;
+    }
+    .page-title {
+      font-family: 'Crimson Text', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a365d;
+      text-align: center;
+    }
+    .pdf-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 48px 24px;
+    }
+    .pdf-frame {
+      width: 100%;
+      height: 85vh;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+    .pdf-fallback {
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+  </style>
+  <script defer src="assets/js/navigation.js"></script>
+</head>
+<body>
+  <!-- Shared Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <a href="index.html"><img class="nav-logo" src="assets/images/logos/ideal.png" alt="IDEAL Logo"></a>
+          <span class="logo-subtitle">Impact Data and Evidence Aggregation Library</span>
+        </div>
+        <ul class="nav-menu"></ul>
+        <div class="nav-auth"></div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">Data Extraction Principles and Objectives</h1>
+    </div>
+  </header>
+
+  <main class="pdf-container">
+    <iframe class="pdf-frame" src="assets/IDEAL_Review_Guide_v102825_clean.pdf#view=FitH" title="IDEAL Guide"></iframe>
+    <p class="pdf-fallback">
+      If the document does not load, <a href="assets/IDEAL_Review_Guide_v102825_clean.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.
+    </p>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content"></div>
+      <div class="footer-bottom"></div>
+    </div>
+  </footer>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

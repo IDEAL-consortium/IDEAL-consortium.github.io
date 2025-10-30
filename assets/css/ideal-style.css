@@ -62,7 +62,7 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: center;
 }
 
@@ -70,7 +70,7 @@ body {
     text-decoration: none;
     color: #4a5568;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;

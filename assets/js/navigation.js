@@ -7,7 +7,7 @@ class NavigationManager {
             { href: 'index.html', text: 'Home', active: false },
             { href: 'Schema_Index.html', text: 'Metadata Schema', active: false },
             { href: 'codingprotocol.html', text: 'Coding Protocol', active: false },
-            { href: 'assets/IDEAL_Review_Guide_v102825_clean.pdf', text: 'Coding Extraction Guide', active: false },
+            { href: 'assets/IDEAL_Review_Guide_v102825_clean.pdf', text: 'Data Extraction Principles and Objectives', active: false },
             { 
                 href: 'coding-progress.html', 
                 text: 'Coding Progress', 

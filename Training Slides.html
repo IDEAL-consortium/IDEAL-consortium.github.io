@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- UPDATED TITLE FOR THIS PAGE -->
+  <title>IDEAL Training Slides</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- ALL STYLES (ORIGINAL + NEW) ARE INCLUDED HERE -->
+  <style>
+  
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; 
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+div.content h2 {
+  color: #1f3667;
+}
+strong {
+  color: #1f3667;
+}
+
+/* Hero Section (Keep styles for other pages, but not used here) */
+.hero {
+    height: 100vh;
+    background: url('Copilot-books.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+    
+/* Main Layout */
+.main {
+    display: flex;
+    flex: 1;
+}
+
+/* --- SIDEBAR STYLES REMOVED --- */
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(31,54,103,0.07);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- NEW STYLES FOR SLIDE DROPDOWNS --- */
+.slide-dropdown {
+    margin-bottom: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fdfdfd;
+    transition: all 0.2s ease-in-out;
+}
+.slide-dropdown:hover {
+    border-color: #ddd;
+}
+
+.dropdown-title {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f3667; /* Matches your site's heading color */
+    list-style: none; /* Removes default triangle in some browsers */
+    position: relative;
+    user-select: none;
+}
+
+.dropdown-title::-webkit-details-marker {
+    display: none; /* Hide default triangle in Chrome/Safari */
+}
+
+/* This creates the '+' and '–' icons */
+.dropdown-title::before {
+    content: '+'; /* Collapsed state icon */
+    font-weight: 700;
+    color: #63bfb2; /* Matches your site's accent color */
+    margin-right: 0.75rem;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    top: 1px;
+}
+
+.slide-dropdown[open] > .dropdown-title::before {
+    content: '–'; /* Expanded state icon */
+    transform: rotate(180deg);
+}
+
+.slide-list {
+    list-style: disc;
+    padding: 0 1.5rem 1.5rem 3.5rem; /* Indent list */
+    margin: 0;
+    line-height: 1.8;
+    border-top: 1px solid #eee;
+}
+
+.slide-list a {
+    color: #1f3366; /* Matches your sidebar link color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.slide-list a:hover {
+    color: #7ec5bb; /* Matches your sidebar hover color */
+    text-decoration: underline;
+}
+/* --- END NEW STYLES --- */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    /* --- SIDEBAR RESPONSIVE STYLES REMOVED --- */
+
+    .content {
+        padding: 20px;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+  </style>
+</head>
+
+<body id="top">
+
+    <!-- NEW LOGO AT TOP -->
+    <div style="text-align: center; background-color: #fff; padding: 1rem; border-bottom: 1px solid #eee;">
+        <!-- This path assumes ideal_logo.png is in the same Schema/ folder -->
+        <img width="300px" src="ideal_logo.png" alt="IDEAL Logo">
+    </div>
+
+    <!-- This offsets the content from the fixed header -->
+    <div class="main">
+    
+        <!-- SIDEBAR REMOVED -->
+
+        <!-- NEW CONTENT SECTION WITH DROPDOWNS -->
+        <div class="content">
+            
+            <!-- NEW BACK TO HOME BUTTON -->
+            <a href="../index.html" style="
+              display: inline-block;
+              margin: 0 0 20px 0;
+              padding: 10px 20px;
+              background-color: #7ec5bb;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+            ">
+              ← Back to Home
+            </a>
+
+            <div class="card">
+                <h2>Training Slides & Resources</h2>
+                <p>Below are links to training slide decks for the IDEAL project. As we continue to develop our training materials, these slides and this site will be updated..</p>
+                
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
+            
+                <!-- 
+                  DROPDOWN 1: 'open' makes this one visible by default.
+                  UPDATED with new slide list.
+                  RENAMED as requested.
+                -->
+                <details class="slide-dropdown" open>
+                    <summary class="dropdown-title">Introduction to IDEAL and Data Extraction</summary>
+                    <ul class="slide-list">
+                        <!-- Links now point to Session_Topics/ folder -->
+                        <li><a href="slides/Introduction to IDEAL.pdf" target="_blank">Introduction to IDEAL</a></li>
+                        <li><a href="slides/IDEAL Data Extraction.pdf" target="_blank">IDEAL Data Extraction</a></li>
+                        <li><a href="slides/IDEAL Training - Metanaysis.pptx.pdf" target="_blank">IDEAL Training - Metanalysis</a></li>
+                        <li><a href="slides/Topics/IDEAL Training - Research Transparency.pdf" target="_blank">IDEAL Training - Research Transparency</a></li>
+                        <li><a href="slides/Topics/Principles of Evidence Aggregation.pdf" target="_blank">Principles of Evidence Aggregation</a></li>
+                        <li><a href="slides/Topics/Survey CTO Introduction.pdf" target="_blank">Survey CTO Introduction</a></li>
+                    </ul>
+                </details>
+            
+                <!-- 
+                  DROPDOWN 2: Also 'open' and title is updated.
+                  UPDATED with remaining slides.
+                  RENAMED as requested.
+                -->
+                <details class="slide-dropdown" open>
+                    <summary class="dropdown-title">Concept Reviews and Applied Fields</summary>
+                    <ul class="slide-list">
+                        <li><a href="slides/Concept Review Estimates.pdf" target="_blank">Concept Review Estimates</a></li>
+                        <li><a href="slides/Concept Review Sampling.pdf" target="_blank">Concept Review Sampling</a></li>
+                        <li><a href="slides/Concepts_ Randomization and Stratification.pdf" target="_blank">Concepts: Randomization and Stratification</a></li>
+                        <li><a href="slides/Concepts_ Specifications.pdf" target="_blank">Concepts: Specifications</a></li>
+                        <li><a href="slides/Fidelity_Compliance_Attrition_Take-up.pdf" target="_blank">Fidelity, Compliance, Attrition, Take-up</a></li>
+                        <li><a href="slides_Field session_ Estimates.pdf" target="_blank">Field Session: Estimates</a></li>
+                        <li><a href="slides_Fields_ Intervention details.pdf" target="_blank">Fields: Intervention details</a></li>
+                        <li><a href="slides_Topics/Fields_ Outcomes.pdf" target="_blank">Fields: Outcomes</a></li>
+                        <li><a href="slides_Fields_ RCT Design.pdf" target="_blank">Fields: RCT Design</a></li>
+                        <li><a href="slides_Fields_ Randomization and stratification.pdf" target="_blank">Fields: Randomization and stratification</a></li>
+                        <li><a href="slides_/IDEAL Training - Stage 2 Field Review .pdf" target="_blank">IDEAL Training - Stage 2 Field Review</a></li>
+                        <li><a href="slides_/Interventions Concept Review.pdf" target="_blank">Interventions Concept Review</a></li>
+                        <li><a href="slides_/Outcomes Concept Review.pdf" target="_blank">Outcomes Concept Review</a></li>
+                        <li><a href="slides_/RCT Design Concept Review.pdf" target="_blank">RCT Design Concept Review</a></li>
+                        <li><a href="slides_/Session_ Partners and Funders.pdf" target="_blank">Session: Partners and Funders</a></li>
+                    </ul>
+                </Ddetails>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- FOOTER IS REMOVED -->
+
+    <!-- SCRIPT (All header/menu scripts are removed) -->
+    <script>
+        // All scripts removed as they were for the old header
+    </script>
+</body>
+</html>

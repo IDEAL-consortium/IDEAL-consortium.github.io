@@ -3,23 +3,98 @@
 <head>
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <!-- Professional Navigation (Shared) -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <a href="index.html">
-            <img src="assets/images/logos/ideal.png" alt="IDEAL" class="nav-logo" />
-          </a>
-        </div>
-        <ul class="nav-menu"></ul>
-        <button class="nav-toggle">☰</button>
-      </div>
-    </div>
-  </nav>
+  
+  <!-- UPDATED TITLE FOR THIS PAGE -->
   <title>IDEAL Training Slides</title>
-    <style>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- ALL STYLES (ORIGINAL + NEW) ARE INCLUDED HERE -->
+  <style>
+  
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; 
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+div.content h2 {
+  color: #1f3667;
+}
+strong {
+  color: #1f3667;
+}
+
+/* Hero Section (Keep styles for other pages, but not used here) */
+.hero {
+    height: 100vh;
+    background: url('Copilot-books.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+    
+/* Main Layout */
+.main {
+    display: flex;
+    flex: 1;
+}
+
+/* --- SIDEBAR STYLES REMOVED --- */
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(31,54,103,0.07);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
 
 /* --- NEW STYLES FOR SLIDE DROPDOWNS --- */
 .slide-dropdown {
@@ -93,6 +168,8 @@
     .main {
         flex-direction: column;
     }
+
+    /* --- SIDEBAR RESPONSIVE STYLES REMOVED --- */
 
     .content {
         padding: 20px;

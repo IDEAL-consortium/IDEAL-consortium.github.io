@@ -141,8 +141,10 @@ strong {
 }
 
 .slide-list {
-    list-style: disc;
-    padding: 0 1.5rem 1.5rem 3.5rem; /* Indent list */
+    /* UPDATED: Removes the round black bullets */
+    list-style: none; 
+    /* UPDATED: Adjusted padding since bullets are gone */
+    padding: 0 1.5rem 1.5rem 1.5rem; 
     margin: 0;
     line-height: 1.8;
     border-top: 1px solid #eee;
@@ -226,6 +228,7 @@ html {
                 <details class="slide-dropdown" open>
                     <summary class="dropdown-title">Introduction to IDEAL and Data Extraction</summary>
                     <ul class="slide-list">
+                        
                         <li>
                             <a href="slides/Introduction to IDEAL.pdf" target="_blank">Introduction to IDEAL</a>
                             <span class="slide-summary">This presentation introduces IDEAL and explains how the platform will enable researchers and policymakers to use research to make evidence-informed decisions.</span>
@@ -261,21 +264,80 @@ html {
                 <details class="slide-dropdown" open>
                     <summary class="dropdown-title">Concept Reviews and Applied Fields</summary>
                     <ul class="slide-list">
-                        <li><a href="slides/Concept Review Estimates.pdf" target="_blank">Concept Review Estimates</a></li>
-                        <li><a href="slides/Concept Review Sampling.pdf" target="_blank">Concept Review Sampling</a></li>
-                        <li><a href="slides/Concepts_ Randomization and Stratification.pdf" target="_blank">Concepts: Randomization and Stratification</a></li>
-                        <li><a href="slides/Concepts_ Specifications.pdf" target="_blank">Concepts: Specifications</a></li>
-                        <li><a href="slides/Fidelity_Compliance_Attrition_Take-up.pdf" target="_blank">Fidelity, Compliance, Attrition, Take-up</a></li>
-                        <li><a href="slides_Field session_ Estimates.pdf" target="_blank">Field Session: Estimates</a></li>
-                        <li><a href="slides_Fields_ Intervention details.pdf" target="_blank">Fields: Intervention details</a></li>
-                        <li><a href="slides_Topics/Fields_ Outcomes.pdf" target="_blank">Fields: Outcomes</a></li>
-                        <li><a href="slides_Fields_ RCT Design.pdf" target="_blank">Fields: RCT Design</a></li>
-                        <li><a href="slides_Fields_ Randomization and stratification.pdf" target="_blank">Fields: Randomization and stratification</a></li>
-                        <li><a href="slides_/IDEAL Training - Stage 2 Field Review .pdf" target="_blank">IDEAL Training - Stage 2 Field Review</a></li>
-                        <li><a href="slides_/Interventions Concept Review.pdf" target="_blank">Interventions Concept Review</a></li>
-                        <li><a href="slides_/Outcomes Concept Review.pdf" target="_blank">Outcomes Concept Review</a></li>
-                        <li><a href="slides_/RCT Design Concept Review.pdf" target="_blank">RCT Design Concept Review</a></li>
-                        <li><a href="slides_/Session_ Partners and Funders.pdf" target="_blank">Session: Partners and Funders</a></li>
+                        <li>
+                            <a href="slides/Concept Review Estimates.pdf" target="_blank">Concept Review Estimates</a>
+                            <span class="slide-summary">This presentation defines the core components of an estimate, distinguishing between estimands (what is being estimated) and estimators (how it is calculated). It covers the essential statistics required for data extraction, including point estimates, precision measures like standard errors and p-values, and sample sizes.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides/Concept Review Sampling.pdf" target="_blank">Concept Review Sampling</a>
+                            <span class="slide-summary">These slides explain how study participants are selected, distinguishing between random sampling for representativeness and randomized assignment for internal validity.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides/Concepts_ Randomization and Stratification.pdf" target="_blank">Concepts: Randomization and Stratification</a>
+                            <span class="slide-summary">This presentation covers the mechanics of randomized assignment, including determining the unit of randomization and the use of stratification to increase precision.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides/Concepts_ Specifications.pdf" target="_blank">Concepts: Specifications</a>
+                            <span class="slide-summary">This presentation details how to identify and classify the empirical specifications used in a study, such as Intent-to-Treat (ITT) and Treatment-on-the-Treated (TOT). It explains the IDEAL "priority" approach for selecting the treatment effect estimate when multiple specifications are reported.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides/Fidelity_Compliance_Attrition_Take-up.pdf" target="_blank">Fidelity, Compliance, Attrition, Take-up</a>
+                            <span class="slide-summary">This presentation clarifies distinct but related concepts that affect study validity: implementation fidelity (quality of delivery), compliance (adherence to assignment), take-up (acceptance of the offer), and attrition (data loss).</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_Field session_ Estimates.pdf" target="_blank">Field Session: Estimates</a>
+                            <span class="slide-summary">These slides guide coders through entering estimate data into SurveyCTO, focusing on point estimates, standard errors, and confidence intervals.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_Fields_ Intervention details.pdf" target="_blank">Fields: Intervention details</a>
+                            <span class="slide-summary">These slides outline the fields required to describe the intervention, including its duration, intensity, and the profile of project implementers.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_Topics/Fields_ Outcomes.pdf" target="_blank">Fields: Outcomes</a>
+                            <span class="slide-summary">These slides explain how to count and define outcome variables found in papers. It provides instructions for specifying the unit of analysis and constructing clear, standardized definitions for each outcome measure.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_Fields_ RCT Design.pdf" target="_blank">Fields: RCT Design</a>
+                            <span class="slide-summary">This presentation includes instructions on how to count and characterize the structural elements of the study, such as the number of distinct experiments and interventions within a single paper. It provides specific rules for mapping interventions to study arms and identifying "rounds" of data collection.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_Fields_ Randomization and stratification.pdf" target="_blank">Fields: Randomization and stratification</a>
+                            <span class="slide-summary">These slides walk through the fields used to record the randomization process, including the total number of units and the specific method of assignment (e.g., clustered or stratified). It instructs on how to extract details about stratification variables and enter data regarding balance tests and quality robustness.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_/IDEAL Training - Stage 2 Field Review .pdf" target="_blank">IDEAL Training - Stage 2 Field Review</a>
+                            <span class="slide-summary">This presentation focuses on identifying specific treatment effects within tables and figures. It provides instructions on how to map outcomes to specifications and time periods.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_/Interventions Concept Review.pdf" target="_blank">Interventions Concept Review</a>
+                            <span class="slide-summary">These slides clarify key concepts related to the intervention itself, such as defining the specific target population and eligibility criteria distinct from the unit of analysis.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_/Outcomes Concept Review.pdf" target="_blank">Outcomes Concept Review</a>
+                            <span class="slide-summary">These slides have instructions on how to conceptually define and classify outcome variables. It covers standardization procedures (z-scores) and specifying the correct unit of measurement and analysis for each outcome.</span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_/RCT Design Concept Review.pdf" target="_blank">RCT Design Concept Review</a>
+                            <span class="slide-summary">This presentation defines the structural components of an experiment, distinguishing between the study population, the interventions tested, and the assignment strategy (e.g., parallel, factorial, or crossover). It explains how to correctly identify "study arms" and data collection "rounds" to ensure accurate mapping of the experimental design. </span>
+                        </li>
+                        
+                        <li>
+                            <a href="slides_/Session_ Partners and Funders.pdf" target="_blank">Session: Partners and Funders</a>
+                            <span class="slide-summary">This presentation includes instructions on how to extract information about the organizations supporting the study, including funders and implementing partners.</span>
+                        </li>
                     </ul>
                 </details>
             </div>
@@ -284,6 +346,7 @@ html {
     </div>
 
     <script>
+        // All scripts removed as they were for the old header
     </script>
 </body>
 </html>

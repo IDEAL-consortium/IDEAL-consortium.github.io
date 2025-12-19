@@ -1,6 +1,6 @@
-/* IDEAL Platform - Professional Stylesheet */
+/* IDEAL Platform Stylesheet */
 
-/* Reset and Base Styles */
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -893,7 +893,7 @@ body {
 
 .consortium-scroll-track {
     display: flex;
-    gap: 3rem;
+    gap: 2.25rem;
     align-items: center;
     animation: scroll 30s linear infinite;
     width: fit-content;
@@ -923,7 +923,7 @@ body {
     border: 2px solid #e2e8f0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
-    width: 300px;
+    width: 250px;
 }
 
 .consortium-organization-card:hover {
@@ -936,8 +936,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
-    height: 200px;
+    padding: 2.25rem 1.5rem;
+    height: 165px;
     background: #ffffff;
 }
 
@@ -1400,16 +1400,16 @@ body {
     }
     
     .consortium-scroll-track {
-        gap: 2rem;
+        gap: 1.75rem;
     }
     
     .consortium-organization-card {
-        width: 250px;
+        width: 210px;
     }
     
     .consortium-organization-card__image-container {
-        height: 160px;
-        padding: 2.5rem 1.5rem;
+        height: 140px;
+        padding: 2rem 1.1rem;
     }
 }
 
@@ -1427,16 +1427,16 @@ body {
     }
     
     .consortium-scroll-track {
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
     
     .consortium-organization-card {
-        width: 200px;
+        width: 170px;
     }
     
     .consortium-organization-card__image-container {
-        height: 130px;
-        padding: 2rem 1rem;
+        height: 110px;
+        padding: 1.5rem 0.8rem;
     }
     
     .login-container {

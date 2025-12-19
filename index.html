@@ -403,17 +403,13 @@ strong {
 
 .content {
     flex: 1;
-    padding: 20px 40px 40px;
+    /* Align content column with sidebar top */
+    padding: 0 40px 40px;
 }
 /* Add spacing between paragraphs inside main content */
 .content p { margin-bottom: 1rem; }
 
 /* Removed old static footer logo grid styles */
-
-.content {
-    flex: 1;
-    padding: 40px;
-}
 
 .card {
     background: #fff;
@@ -487,6 +483,121 @@ html {
 
 /* Rolling consortium logos styles are now sourced from assets/css/ideal-style.css */
 
+/* Project flowchart */
+.project-flowchart {
+  margin: 2rem 0;
+}
+#project-flowchart h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: #1f3667;
+}
+.project-flowchart img {
+  cursor: zoom-in;
+}
+.project-flowchart-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+}
+.project-flowchart-nav button {
+  appearance: none;
+  border: 1px solid rgba(31, 54, 103, 0.2);
+  background: #fff;
+  color: #1f3667;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.05s ease;
+}
+.project-flowchart-nav button:hover {
+  background: #f8f9fa;
+  border-color: rgba(31, 54, 103, 0.35);
+}
+.project-flowchart-nav button:active {
+  transform: translateY(1px);
+}
+.project-flowchart-nav .project-flowchart-label {
+  color: rgba(31, 54, 103, 0.85);
+  font-size: 0.95rem;
+}
+.project-flowchart img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+}
+.project-flowchart figcaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  color: rgba(31, 54, 103, 0.8);
+  font-size: 0.95rem;
+}
+
+/* Flowchart lightbox modal */
+.flowchart-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2000;
+}
+.flowchart-modal.is-open {
+  display: flex;
+}
+.flowchart-modal__dialog {
+  position: relative;
+  width: min(1200px, 100%);
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
+}
+.flowchart-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.flowchart-modal__title {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f3667;
+  font-weight: 600;
+}
+.flowchart-modal__close {
+  appearance: none;
+  border: 1px solid rgba(31, 54, 103, 0.2);
+  background: #fff;
+  color: #1f3667;
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.flowchart-modal__body {
+  padding: 1rem;
+  overflow: auto;
+  max-height: calc(90vh - 56px);
+}
+.flowchart-modal__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 </style>
 </head>
 
@@ -559,6 +670,23 @@ html {
     </nav>
 
         <div class="content">
+            <div class="card" id="project-flowchart">
+                <h2>IDEAL Project Flowchart</h2>
+                <figure class="project-flowchart">
+                    <img
+                        id="flowchartImg"
+                        src="assets/images/flowcharts/Project%20Flowchart.png"
+                        alt="Project flowchart"
+                        loading="lazy"
+                    />
+                    <figcaption id="flowchartCaption">IDEAL Project Flowchart (Overall)</figcaption>
+                </figure>
+                <div class="project-flowchart-nav" aria-label="Project flowchart navigation">
+                    <button type="button" id="flowchartPrev" aria-label="Previous flowchart">&larr;</button>
+                    <div class="project-flowchart-label" id="flowchartLabel">1 / 2</div>
+                    <button type="button" id="flowchartNext" aria-label="Next flowchart">&rarr;</button>
+                </div>
+            </div>
             <p>
                 <strong>Motivation</strong>
             </p>
@@ -576,21 +704,23 @@ html {
 
     <!-- Rolling Logos Section -->
     <section class="consortium-section">
-        <div class="container">
-            <h2 class="cta-title">IDEAL Consortium Members</h2>
+        <div class="container" style="margin-top: 0.75rem; margin-bottom: 1.25rem;">
+            <div style="display:flex; align-items:center; justify-content:center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://www.worldbank.org/en/programs/sief-trust-fund" target="_blank" rel="noopener noreferrer" title="SIEF"
+                   style="display:inline-flex; align-items:center;">
+                    <img src="assets/images/logos/sief.png" alt="SIEF" style="height: 78px; width: auto; max-width: 90vw; display:block;" />
+                </a>
+                <a href="https://www.worldbank.org/en/research/brief/ideal" target="_blank" rel="noopener noreferrer" title="World Bank Group"
+                   style="display:inline-flex; align-items:center;">
+                    <img src="assets/images/logos/world-bank-group.png" alt="World Bank Group" style="height: 78px; width: auto; max-width: 90vw; display:block;" />
+                </a>
+            </div>
+        </div>
+        <div class="container" style="margin-top: -0.5rem;">
+            <h2 class="cta-title">In collaboration with</h2>
         </div>
         <div class="consortium-scroll-container">
             <div class="consortium-scroll-track">
-                <a href="https://www.worldbank.org/en/research/brief/ideal" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank Group">
-                    <div class="consortium-organization-card__image-container">
-                        <img src="assets/images/logos/world-bank-group.png" class="consortium-organization-card__image" alt="World Bank Group" />
-                    </div>
-                </a>
-                <a href="https://www.worldbank.org/en/programs/sief-trust-fund" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="SIEF">
-                    <div class="consortium-organization-card__image-container">
-                        <img src="assets/images/logos/sief.png" class="consortium-organization-card__image" alt="SIEF" />
-                    </div>
-                </a>
                 <a href="https://www.worldbank.org/en/about/unit/unit-dec/impactevaluation" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank">
                     <div class="consortium-organization-card__image-container">
                         <img src="assets/images/logos/world-bank.png" class="consortium-organization-card__image" alt="World Bank" />
@@ -617,16 +747,6 @@ html {
                     </div>
                 </a>
                 <!-- Duplicate for seamless scroll -->
-                <a href="https://www.worldbank.org/en/research/brief/ideal" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank Group">
-                    <div class="consortium-organization-card__image-container">
-                        <img src="assets/images/logos/world-bank-group.png" class="consortium-organization-card__image" alt="World Bank Group" />
-                    </div>
-                </a>
-                <a href="https://www.worldbank.org/en/programs/sief-trust-fund" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="SIEF">
-                    <div class="consortium-organization-card__image-container">
-                        <img src="assets/images/logos/sief.png" class="consortium-organization-card__image" alt="SIEF" />
-                    </div>
-                </a>
                 <a href="https://www.worldbank.org/en/about/unit/unit-dec/impactevaluation" class="consortium-organization-card" target="_blank" rel="noopener noreferrer" title="World Bank">
                     <div class="consortium-organization-card__image-container">
                         <img src="assets/images/logos/world-bank.png" class="consortium-organization-card__image" alt="World Bank" />
@@ -664,6 +784,19 @@ html {
         </div>
     </footer>
 
+    <!-- Flowchart Lightbox Modal -->
+    <div class="flowchart-modal" id="flowchartModal" aria-hidden="true">
+        <div class="flowchart-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="flowchartModalTitle">
+            <div class="flowchart-modal__header">
+                <p class="flowchart-modal__title" id="flowchartModalTitle">Project Flowchart</p>
+                <button type="button" class="flowchart-modal__close" id="flowchartModalClose" aria-label="Close">×</button>
+            </div>
+            <div class="flowchart-modal__body">
+                <img class="flowchart-modal__img" id="flowchartModalImg" alt="Project flowchart large view" />
+            </div>
+        </div>
+    </div>
+
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -690,6 +823,68 @@ html {
                 dropdownMenu.classList.remove('show');
             }
         });
+
+        // Flowchart toggle (two images)
+        (function() {
+            const flowcharts = [
+                { src: 'assets/images/flowcharts/Project%20Flowchart.png', caption: 'IDEAL Project Flowchart (Overall)' },
+                { src: 'assets/images/flowcharts/Project%20Flowchart%20(Data%20extraction).png', caption: 'IDEAL Project Flowchart (Data Extraction)' }
+            ];
+
+            const img = document.getElementById('flowchartImg');
+            const caption = document.getElementById('flowchartCaption');
+            const label = document.getElementById('flowchartLabel');
+            const prev = document.getElementById('flowchartPrev');
+            const next = document.getElementById('flowchartNext');
+            if (!img || !caption || !label || !prev || !next) return;
+
+            const modal = document.getElementById('flowchartModal');
+            const modalImg = document.getElementById('flowchartModalImg');
+            const modalTitle = document.getElementById('flowchartModalTitle');
+            const modalClose = document.getElementById('flowchartModalClose');
+
+            let idx = 0;
+            const render = () => {
+                img.src = flowcharts[idx].src;
+                caption.textContent = flowcharts[idx].caption;
+                label.textContent = `${idx + 1} / ${flowcharts.length}`;
+            };
+
+            prev.addEventListener('click', () => { idx = (idx - 1 + flowcharts.length) % flowcharts.length; render(); });
+            next.addEventListener('click', () => { idx = (idx + 1) % flowcharts.length; render(); });
+
+            const openModal = () => {
+                if (!modal || !modalImg || !modalTitle) return;
+                modalImg.src = flowcharts[idx].src;
+                modalTitle.textContent = flowcharts[idx].caption;
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                // focus close button for accessibility
+                if (modalClose) modalClose.focus();
+            };
+            const closeModal = () => {
+                if (!modal) return;
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+            };
+
+            // Click image to open large view
+            img.addEventListener('click', openModal);
+
+            // Close interactions
+            if (modalClose) modalClose.addEventListener('click', closeModal);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    // close when clicking the dark backdrop (but not the dialog)
+                    if (e.target === modal) closeModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            render();
+        })();
     </script>
     <!-- Shared Footer Script -->
     <script src="assets/js/footer.js"></script>

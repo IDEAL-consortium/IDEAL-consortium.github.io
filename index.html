@@ -653,7 +653,7 @@ html {
                 Welcome to IDEAL, the Impact Data and Evidence Aggregation Library, a platform designed to extract results data from international development RCTs and make them accessible to researchers and policymakers. The project is currently in a pilot phase, during which we extract information from a curated initial set of studies and develop robust protocols to grow and maintain IDEAL in the future.
             </p>
             <p class="hero-intro-spacer hero-intro-2">
-                IDEAL is supported by a global consortium of institutions. Hosted by the World Bank, IDEAL will be fully open-access and free for the world to use. Users will be able to easily search, compare, and visualize the relative effect sizes of different policy interventions on a range of outcomes, across countries and contexts.
+                Hosted by the World Bank, IDEAL will be fully open-access and free for the world to use. Users will be able to easily search, compare, and visualize the relative effect sizes of different policy interventions on a range of outcomes, across countries and contexts.
             </p>
         </div>
     </section>
@@ -681,11 +681,6 @@ html {
                     />
                     <figcaption id="flowchartCaption">IDEAL Project Flowchart (Overall)</figcaption>
                 </figure>
-                <div class="project-flowchart-nav" aria-label="Project flowchart navigation">
-                    <button type="button" id="flowchartPrev" aria-label="Previous flowchart">&larr;</button>
-                    <div class="project-flowchart-label" id="flowchartLabel">1 / 2</div>
-                    <button type="button" id="flowchartNext" aria-label="Next flowchart">&rarr;</button>
-                </div>
             </div>
             <p>
                 <strong>Motivation</strong>
@@ -705,7 +700,7 @@ html {
     <!-- Rolling Logos Section -->
     <section class="consortium-section">
         <div class="container" style="margin-top: 0.75rem; margin-bottom: 1.25rem;">
-            <div style="display:flex; align-items:center; justify-content:center; gap: 0.75rem; flex-wrap: wrap;">
+            <div style="display:flex; align-items:center; justify-content:center; gap: 4rem; flex-wrap: wrap; padding: 0 clamp(2.5rem, 8vw, 6rem);">
                 <a href="https://www.worldbank.org/en/programs/sief-trust-fund" target="_blank" rel="noopener noreferrer" title="SIEF"
                    style="display:inline-flex; align-items:center;">
                     <img src="assets/images/logos/sief.png" alt="SIEF" style="height: 78px; width: auto; max-width: 90vw; display:block;" />
@@ -824,46 +819,27 @@ html {
             }
         });
 
-        // Flowchart toggle (two images)
+        // Flowchart lightbox (single image)
         (function() {
-            const flowcharts = [
-                { src: 'assets/images/flowcharts/Project%20Flowchart.png', caption: 'IDEAL Project Flowchart (Overall)' },
-                { src: 'assets/images/flowcharts/Project%20Flowchart%20(Data%20extraction).png', caption: 'IDEAL Project Flowchart (Data Extraction)' }
-            ];
-
             const img = document.getElementById('flowchartImg');
             const caption = document.getElementById('flowchartCaption');
-            const label = document.getElementById('flowchartLabel');
-            const prev = document.getElementById('flowchartPrev');
-            const next = document.getElementById('flowchartNext');
-            if (!img || !caption || !label || !prev || !next) return;
+            if (!img || !caption) return;
 
             const modal = document.getElementById('flowchartModal');
             const modalImg = document.getElementById('flowchartModalImg');
             const modalTitle = document.getElementById('flowchartModalTitle');
             const modalClose = document.getElementById('flowchartModalClose');
-
-            let idx = 0;
-            const render = () => {
-                img.src = flowcharts[idx].src;
-                caption.textContent = flowcharts[idx].caption;
-                label.textContent = `${idx + 1} / ${flowcharts.length}`;
-            };
-
-            prev.addEventListener('click', () => { idx = (idx - 1 + flowcharts.length) % flowcharts.length; render(); });
-            next.addEventListener('click', () => { idx = (idx + 1) % flowcharts.length; render(); });
+            if (!modal || !modalImg || !modalTitle) return;
 
             const openModal = () => {
-                if (!modal || !modalImg || !modalTitle) return;
-                modalImg.src = flowcharts[idx].src;
-                modalTitle.textContent = flowcharts[idx].caption;
+                modalImg.src = img.getAttribute('src') || '';
+                modalTitle.textContent = caption.textContent || 'Project Flowchart';
                 modal.classList.add('is-open');
                 modal.setAttribute('aria-hidden', 'false');
                 // focus close button for accessibility
                 if (modalClose) modalClose.focus();
             };
             const closeModal = () => {
-                if (!modal) return;
                 modal.classList.remove('is-open');
                 modal.setAttribute('aria-hidden', 'true');
             };
@@ -883,7 +859,6 @@ html {
                 if (e.key === 'Escape') closeModal();
             });
 
-            render();
         })();
     </script>
     <!-- Shared Footer Script -->

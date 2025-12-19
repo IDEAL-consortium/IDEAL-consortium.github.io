@@ -35,6 +35,84 @@
       margin-top: 12px;
       font-size: 0.95rem;
     }
+
+    .flowchart {
+      margin: 0 0 48px;
+    }
+    .flowchart-title {
+      margin: 14px 0 0;
+      text-align: center;
+      color: #1f3667;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .flowchart img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+    }
+
+    /* Flowchart lightbox modal */
+    .flowchart-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 2000;
+    }
+    .flowchart-modal.is-open {
+      display: flex;
+    }
+    .flowchart-modal__dialog {
+      position: relative;
+      width: min(1200px, 100%);
+      max-height: 90vh;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .flowchart-modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .flowchart-modal__title {
+      margin: 0;
+      font-size: 1rem;
+      color: #1f3667;
+      font-weight: 600;
+    }
+    .flowchart-modal__close {
+      appearance: none;
+      border: 1px solid rgba(31, 54, 103, 0.2);
+      background: #fff;
+      color: #1f3667;
+      border-radius: 10px;
+      padding: 0.35rem 0.6rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .flowchart-modal__body {
+      padding: 1rem;
+      overflow: auto;
+      max-height: calc(90vh - 56px);
+    }
+    .flowchart-modal__img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
   <script defer src="assets/js/navigation.js"></script>
 </head>
@@ -60,11 +138,33 @@
   </header>
 
   <main class="pdf-container">
+    <div class="flowchart">
+      <img
+        id="principlesFlowchartImg"
+        src="assets/images/flowcharts/Project%20Flowchart%20(Data%20extraction).png"
+        alt="IDEAL Project Flowchart (Data Extraction)"
+        loading="lazy"
+      />
+      <h2 class="flowchart-title">IDEAL Data Extraction Flowchart</h2>
+    </div>
     <iframe class="pdf-frame" src="assets/IDEAL_Review_Guide_v102825_clean.pdf#view=FitH" title="IDEAL Guide"></iframe>
     <p class="pdf-fallback">
       If the document does not load, <a href="assets/IDEAL_Review_Guide_v102825_clean.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.
     </p>
   </main>
+
+  <!-- Flowchart Lightbox Modal -->
+  <div class="flowchart-modal" id="principlesFlowchartModal" aria-hidden="true">
+    <div class="flowchart-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="principlesFlowchartModalTitle">
+      <div class="flowchart-modal__header">
+        <p class="flowchart-modal__title" id="principlesFlowchartModalTitle">IDEAL Project Flowchart (Data Extraction)</p>
+        <button type="button" class="flowchart-modal__close" id="principlesFlowchartModalClose" aria-label="Close">×</button>
+      </div>
+      <div class="flowchart-modal__body">
+        <img class="flowchart-modal__img" id="principlesFlowchartModalImg" alt="IDEAL Project Flowchart (Data Extraction) large view" />
+      </div>
+    </div>
+  </div>
 
   <!-- Shared Footer -->
   <footer class="footer">
@@ -74,5 +174,35 @@
     </div>
   </footer>
   <script src="assets/js/footer.js"></script>
+  <script>
+    (function() {
+      const img = document.getElementById('principlesFlowchartImg');
+      const modal = document.getElementById('principlesFlowchartModal');
+      const modalImg = document.getElementById('principlesFlowchartModalImg');
+      const modalClose = document.getElementById('principlesFlowchartModalClose');
+      if (!img || !modal || !modalImg) return;
+
+      const openModal = () => {
+        modalImg.src = img.getAttribute('src') || '';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        if (modalClose) modalClose.focus();
+      };
+
+      const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      };
+
+      img.addEventListener('click', openModal);
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>

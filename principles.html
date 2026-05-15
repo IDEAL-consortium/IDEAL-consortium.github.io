@@ -3,206 +3,360 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IDEAL Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/ideal-style.css">
+  <title>IDEAL Guide — Data Extraction Principles and Objectives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
   <style>
-    .page-header {
-      padding: 110px 0 24px;
-      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-      margin-top: 70px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:     #0f1e3d;
+      --blue:     #1d5ba3;
+      --blue-mid: #2e75c8;
+      --blue-lt:  #e8f1fb;
+      --teal:     #1a7a6e;
+      --teal-lt:  #e0f3f1;
+      --rule:     #c8d8f0;
+      --text:     #1a1a2e;
+      --muted:    #5a6272;
+      --bg:       #f5f7fb;
+      --white:    #ffffff;
+      --radius:   10px;
+      --shadow:   0 2px 12px rgba(29,91,163,.10);
     }
-    .page-title {
-      font-family: 'Crimson Text', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #1a365d;
-      text-align: center;
-    }
-    .pdf-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px 48px 24px;
-    }
-    .pdf-frame {
-      width: 100%;
-      height: 85vh;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: #ffffff;
-    }
-    .pdf-fallback {
-      margin-top: 12px;
-      font-size: 0.95rem;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
 
-    .flowchart {
-      margin: 0 0 48px;
-    }
-    .flowchart-title {
-      margin: 14px 0 0;
-      text-align: center;
-      color: #1f3667;
-      font-family: 'Crimson Text', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-    .flowchart img {
-      width: 100%;
-      max-width: 1200px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      cursor: zoom-in;
-    }
+    .topbar { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; gap: 1rem; height: 56px; }
+    .topbar img { height: 30px; }
+    .topbar-name { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .04em; }
 
-    /* Flowchart lightbox modal */
-    .flowchart-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      z-index: 2000;
-    }
-    .flowchart-modal.is-open {
-      display: flex;
-    }
-    .flowchart-modal__dialog {
-      position: relative;
-      width: min(1200px, 100%);
-      max-height: 90vh;
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-      overflow: hidden;
-    }
-    .flowchart-modal__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .flowchart-modal__title {
-      margin: 0;
-      font-size: 1rem;
-      color: #1f3667;
-      font-weight: 600;
-    }
-    .flowchart-modal__close {
-      appearance: none;
-      border: 1px solid rgba(31, 54, 103, 0.2);
-      background: #fff;
-      color: #1f3667;
-      border-radius: 10px;
-      padding: 0.35rem 0.6rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .flowchart-modal__body {
-      padding: 1rem;
-      overflow: auto;
-      max-height: calc(90vh - 56px);
-    }
-    .flowchart-modal__img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%); padding: 3rem 2rem 2.5rem; text-align: center; }
+    .hero-label { display: inline-block; background: rgba(255,255,255,.12); color: rgba(255,255,255,.8); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(1.6rem,4vw,2.6rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: .75rem; }
+    .hero p { max-width: 620px; margin: 0 auto 1.75rem; color: rgba(255,255,255,.7); font-size: 15px; }
+    .hero-actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 500; padding: 10px 22px; border-radius: 8px; text-decoration: none; cursor: pointer; border: none; transition: opacity .15s, transform .1s; }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-primary { background: var(--blue-mid); color: #fff; }
+    .btn-outline  { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .page { max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+    .section-head { display: flex; align-items: center; gap: .65rem; margin-bottom: 1.25rem; }
+    .section-head h2 { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue-mid); flex-shrink: 0; }
+    .dot-teal { background: var(--teal); }
+
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+
+    .summary-strip { display: flex; align-items: center; gap: 1.25rem; background: var(--blue-lt); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.1rem 1.5rem; margin-bottom: 2.5rem; }
+    .summary-icon { width: 44px; height: 44px; flex-shrink: 0; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .summary-icon svg { width: 22px; height: 22px; stroke: #fff; }
+    .summary-text { flex: 1; }
+    .summary-text strong { display: block; font-size: 14px; color: var(--navy); }
+    .summary-text span { font-size: 13px; color: var(--muted); }
+    .btn-dl { background: var(--blue); color: #fff; font-size: 13px; padding: 9px 18px; white-space: nowrap; }
+
+    .principles-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.5rem; }
+    .principle { background: var(--white); padding: 1.4rem 1.25rem; }
+    .principle-icon { width: 36px; height: 36px; background: var(--blue-lt); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .75rem; }
+    .principle-icon svg { width: 18px; height: 18px; stroke: var(--blue); }
+    .principle h3 { font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: .04em; text-transform: uppercase; margin-bottom: .35rem; }
+    .principle p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    .outputs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .output-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.25rem; border-top: 3px solid var(--teal); }
+    .output-num { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4rem; }
+    .output-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+    .output-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    .elig-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: .75rem; margin-bottom: 2.5rem; }
+    .elig-item { background: var(--white); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow); border-left: 3px solid var(--blue-mid); }
+    .elig-item h4 { font-size: 12px; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem; }
+    .elig-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .elig-item.excl { border-left-color: #b03030; }
+    .elig-item.excl h4 { color: #b03030; }
+
+    .workflow { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .stage { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.4rem 1.5rem; position: relative; overflow: hidden; }
+    .stage::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue-mid); }
+    .stage-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--blue-lt); border-radius: 50%; font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: .75rem; }
+    .stage h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: .5rem; }
+    .stage p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .stage-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-top: .75rem; }
+    .badge-blue { background: var(--blue-lt); color: var(--blue); }
+    .badge-teal { background: var(--teal-lt); color: var(--teal); }
+
+    .flowchart-wrap { padding: 1.5rem; text-align: center; }
+    .flowchart-wrap img { max-width: 100%; border-radius: 8px; border: 1px solid var(--rule); }
+    .flowchart-caption { font-size: 12px; color: var(--muted); margin-top: .75rem; }
+
+    .pdf-embed-wrap { padding: 1.5rem; }
+    .pdf-embed-wrap iframe { width: 100%; height: 780px; border: 1px solid var(--rule); border-radius: 8px; }
+
+    footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem; font-size: 12px; color: var(--muted); }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .summary-strip { flex-direction: column; text-align: center; }
+      .hero-actions, .btn-dl { flex-direction: column; align-items: center; width: 100%; justify-content: center; }
     }
   </style>
-  <script defer src="assets/js/navigation.js"></script>
 </head>
 <body>
-  <!-- Shared Navigation -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <a href="index.html"><img class="nav-logo" src="assets/images/logos/ideal.png" alt="IDEAL Logo"></a>
-          <span class="logo-subtitle">Impact Data and Evidence Aggregation Library</span>
+
+<div class="topbar">
+  <a href="https://ideal-consortium.github.io/index.html">
+    <img src="https://ideal-consortium.github.io/assets/images/logos/ideal.png" alt="IDEAL Logo" />
+  </a>
+  <span class="topbar-name">Impact Data and Evidence Aggregation Library</span>
+</div>
+
+<div class="hero">
+  <h1>Data Extraction Principles<br>and Objectives</h1>
+  <p>A neutral metadata repository and systematic framework for extracting, coding, and quality-assuring RCT evidence from low- and middle-income countries.</p>
+  <div class="hero-actions">
+    <a href="#full-guide" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      View Full Guide
+    </a>
+    <a href="IDEAL_Summary.pdf" download class="btn btn-outline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Summary PDF
+    </a>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Summary PDF strip -->
+  <div class="summary-strip">
+    <div class="summary-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div class="summary-text">
+      <strong>IDEAL Review Guide — Summary (PDF)</strong>
+      <span>Principles, eligibility, coding components, two-stage workflow, and QA procedures — at a glance.</span>
+    </div>
+    <a href="IDEAL_Summary.pdf" download class="btn btn-dl btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+  </div>
+
+  <!-- Principles -->
+  <div class="section-head"><div class="dot"></div><h2>Core Principles</h2></div>
+  <div class="principles-grid">
+    <div class="principle">
+      <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <h3>Transparency</h3>
+      <p>Open-source, open-access public good. All protocols, coding decisions, and QA measures are publicly documented.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+      <h3>Reproducibility</h3>
+      <p>Detailed protocols let third parties replicate and verify every step of the review and coding process.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <h3>Minimum Fields</h3>
+      <p>A carefully selected minimum set of fields balances comprehensiveness with feasibility across disciplines.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <h3>Scalability</h3>
+      <p>Staged workflow and custom data entry platform support extraction from thousands of RCTs at high quality.</p>
+    </div>
+  </div>
+
+  <!-- Outputs -->
+  <div class="section-head"><div class="dot dot-teal"></div><h2>Main Outputs</h2></div>
+  <div class="outputs-grid">
+    <div class="output-card">
+      <div class="output-num">Output 1</div>
+      <h3>Schema &amp; Extraction Protocol</h3>
+      <p>Metadata schema and structured instruments with fields, validation rules, and skip logic for systematic extraction at scale.</p>
+    </div>
+    <div class="output-card">
+      <div class="output-num">Output 2</div>
+      <h3>Custom Data Entry Platform</h3>
+      <p>Free, public platform with integrated QA and support — also usable as a general survey tool by external users.</p>
+    </div>
+    <div class="output-card">
+      <div class="output-num">Output 3</div>
+      <h3>Library of RCTs</h3>
+      <p>Comprehensive, interoperable database of coded RCTs from low- and middle-income countries, comparable across studies.</p>
+    </div>
+    <div class="output-card">
+      <div class="output-num">Output 4</div>
+      <h3>Access Platform</h3>
+      <p>Downloadable datasets and interactive evidence presentations for researchers, policymakers, and practitioners.</p>
+    </div>
+    <div class="output-card">
+      <div class="output-num">Output 5</div>
+      <h3>Pedagogical Resources</h3>
+      <p>Training courses, technical materials for coders and external users, and open-source data files explaining assumptions underlying standard meta-analysis packages.</p>
+    </div>
+  </div>
+
+  <!-- Eligibility -->
+  <div class="section-head"><div class="dot"></div><h2>Study Eligibility</h2></div>
+  <div class="elig-grid">
+    <div class="elig-item">
+      <h4>Publication</h4>
+      <p>Peer-reviewed journal article with a valid DOI, available in English.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Geography</h4>
+      <p>Implemented in low- or middle-income countries per World Bank income group classifications (updated annually).</p>
+    </div>
+    <div class="elig-item">
+      <h4>Design</h4>
+      <p>RCTs evaluating field or policy interventions — field experiments, A/B tests, and cluster-randomized trials.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Reporting</h4>
+      <p>At least one quantitative treatment effect with a point estimate and precision (SE, CI, p-value, or test statistic).</p>
+    </div>
+    <div class="elig-item excl">
+      <h4>Exclusions</h4>
+      <p>Lab-in-the-field, survey-design interventions, hypothetical/pre-analysis-plan-only studies are not eligible.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Pilot Scope</h4>
+      <p>Currently targeting 1,000 RCTs coded by human coders. Criteria may expand after the pilot phase.</p>
+    </div>
+  </div>
+
+  <!-- Quality Rating Approach -->
+  <div class="section-head"><div class="dot"></div><h2>Quality Rating Approach</h2></div>
+  <div class="card" style="margin-bottom:2.5rem">
+    <div style="padding:1.5rem">
+      <div style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px;border-right:1px solid var(--rule);padding-right:1.5rem">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem">IDEAL's Approach</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.65">IDEAL functions as a <strong style="color:var(--text)">neutral metadata repository</strong> — it does not assign quality ratings or risk-of-bias scores to studies. Rather than determining which studies are "high quality" or "low quality," IDEAL captures the raw information that enables secondary users to conduct their own assessments according to their preferred methodologies and frameworks.</p>
         </div>
-        <ul class="nav-menu"></ul>
-        <div class="nav-auth"></div>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="container">
-      <h1 class="page-title">Data Extraction Principles and Objectives</h1>
-    </div>
-  </header>
-
-  <main class="pdf-container">
-    <div class="flowchart">
-      <img
-        id="principlesFlowchartImg"
-        src="assets/images/flowcharts/Project%20Flowchart%20(Data%20extraction).png"
-        alt="IDEAL Project Flowchart (Data Extraction)"
-        loading="lazy"
-      />
-      <h2 class="flowchart-title">IDEAL Data Extraction Flowchart</h2>
-    </div>
-    <iframe class="pdf-frame" src="assets/IDEAL_Review_Guide_v102825_clean.pdf#view=FitH" title="IDEAL Guide"></iframe>
-    <p class="pdf-fallback">
-      If the document does not load, <a href="assets/IDEAL_Review_Guide_v102825_clean.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.
-    </p>
-  </main>
-
-  <!-- Flowchart Lightbox Modal -->
-  <div class="flowchart-modal" id="principlesFlowchartModal" aria-hidden="true">
-    <div class="flowchart-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="principlesFlowchartModalTitle">
-      <div class="flowchart-modal__header">
-        <p class="flowchart-modal__title" id="principlesFlowchartModalTitle">IDEAL Project Flowchart (Data Extraction)</p>
-        <button type="button" class="flowchart-modal__close" id="principlesFlowchartModalClose" aria-label="Close">×</button>
-      </div>
-      <div class="flowchart-modal__body">
-        <img class="flowchart-modal__img" id="principlesFlowchartModalImg" alt="IDEAL Project Flowchart (Data Extraction) large view" />
+        <div style="flex:2;min-width:260px">
+          <p style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.75rem">Fields That Support Risk-of-Bias Assessment</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem">
+            <div style="background:var(--blue-lt);border-radius:8px;padding:.75rem 1rem">
+              <p style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:.2rem">Attrition</p>
+              <p style="font-size:12px;color:var(--muted)">Sample sizes at randomization and analysis enable calculation of participant attrition.</p>
+            </div>
+            <div style="background:var(--blue-lt);border-radius:8px;padding:.75rem 1rem">
+              <p style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:.2rem">Selection Bias</p>
+              <p style="font-size:12px;color:var(--muted)">Randomization method and unit of randomization inform assessment of selection bias.</p>
+            </div>
+            <div style="background:var(--blue-lt);border-radius:8px;padding:.75rem 1rem">
+              <p style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:.2rem">Analytical Validity</p>
+              <p style="font-size:12px;color:var(--muted)">Documented analytical approaches allow evaluation of appropriate handling of clustering and stratification.</p>
+            </div>
+            <div style="background:var(--blue-lt);border-radius:8px;padding:.75rem 1rem">
+              <p style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:.2rem">Compatible Frameworks</p>
+              <p style="font-size:12px;color:var(--muted)">Users can apply Cochrane risk-of-bias, WWC threshold criteria, or any other framework to IDEAL data.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Shared Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content"></div>
-      <div class="footer-bottom"></div>
+  <!-- Two-stage workflow -->
+  <div class="section-head"><div class="dot"></div><h2>Two-Stage Data Extraction Workflow</h2></div>
+  <div class="workflow">
+    <div class="stage">
+      <div class="stage-num">1</div>
+      <h3>Map Structure &amp; Locate Treatment Effects</h3>
+      <p>Document the experimental architecture — number of experiments, interventions, study arms, outcomes, specifications, data collection rounds, and exhibits containing results. Then confirm which treatment effects exist per outcome using IDEAL's prioritization hierarchy, organized exhibit by exhibit.</p>
+      <span class="stage-badge badge-blue">Supervisor review &amp; approval required before Stage 2</span>
     </div>
-  </footer>
-  <script src="assets/js/footer.js"></script>
-  <script>
-    (function() {
-      const img = document.getElementById('principlesFlowchartImg');
-      const modal = document.getElementById('principlesFlowchartModal');
-      const modalImg = document.getElementById('principlesFlowchartModalImg');
-      const modalClose = document.getElementById('principlesFlowchartModalClose');
-      if (!img || !modal || !modalImg) return;
+    <div class="stage">
+      <div class="stage-num">2</div>
+      <h3>Extract Detailed Information</h3>
+      <p>Collect comprehensive metadata: intervention descriptions, outcome definitions, sample characteristics, and numerical treatment effect values with precision measures and statistics needed for effect size standardization. All data auto-links to Stage 1 structural elements.</p>
+      <span class="stage-badge badge-teal">Double-coded by two independent coders</span>
+    </div>
+  </div>
 
-      const openModal = () => {
-        modalImg.src = img.getAttribute('src') || '';
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        if (modalClose) modalClose.focus();
-      };
+  <!-- Quality Assurance -->
+  <div class="section-head"><div class="dot"></div><h2>Quality Assurance Procedures</h2></div>
+  <div class="elig-grid" style="margin-bottom:2.5rem">
+    <div class="elig-item">
+      <h4>Training</h4>
+      <p>Coders are hired competitively and complete a full training program — protocols, videos, and 10 practice papers with PI-verified ground truth. Weekly office hours throughout.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Built-in Validation</h4>
+      <p>The data entry platform enforces automated real-time consistency checks and skip logic, catching errors and logical contradictions as coders work.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Supervisor Review</h4>
+      <p>After Stage 1, supervisors review and approve all entries before coders can proceed. Supervisors may request resubmission for major errors; minor corrections are made directly.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Double-Coding</h4>
+      <p>Two independent coders complete Stage 2 for every paper without seeing each other's work. Supervisors compare entries, identify discrepancies, and produce final consensus values.</p>
+    </div>
+    <div class="elig-item">
+      <h4>PI Spot Checks</h4>
+      <p>Principal Investigators verify 20% of fields across 20% of randomly selected papers initially, reducing to 10% as quality stabilizes. Errors flagged by PIs are corrected by supervisors.</p>
+    </div>
+    <div class="elig-item">
+      <h4>Ongoing Monitoring</h4>
+      <p>PI-cleared data is processed to check and remove outliers. A feedback form on the IDEAL platform allows users to flag issues for continuous improvement.</p>
+    </div>
+  </div>
 
-      const closeModal = () => {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-      };
+  <!-- Quality Metrics -->
+  <div class="section-head"><div class="dot"></div><h2>Quality Metrics</h2></div>
+  <div class="workflow" style="margin-bottom:2.5rem">
+    <div class="stage">
+      <div class="stage-num" style="width:auto;padding:0 10px;border-radius:6px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;">Accuracy</div>
+      <h3>How correct is the data?</h3>
+      <p>An entry is accurate if it correctly represents what is described in the manuscript, verified by a PI for fields requiring inference. Tracked as: fields verified accurate ÷ total fields — calculated per paper, per section, and per coder.</p>
+      <span class="stage-badge badge-blue">Based on PI spot-check comparisons</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num" style="width:auto;padding:0 10px;border-radius:6px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;">Reliability</div>
+      <h3>How consistent is the data?</h3>
+      <p>An entry is reliable if two coders extract the same information in the same way. Tracked as: double-coded extractions in agreement ÷ total papers coded — calculated per field and per section.</p>
+      <span class="stage-badge badge-teal">Based on Stage 2 double-coding</span>
+    </div>
+  </div>
 
-      img.addEventListener('click', openModal);
-      if (modalClose) modalClose.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-      });
-    })();
-  </script>
+  <!-- Flowchart -->
+  <div class="section-head"><div class="dot"></div><h2>Data Extraction Flowchart</h2></div>
+  <div class="card" style="margin-bottom:2.5rem">
+    <div class="flowchart-wrap">
+      <img
+        src="https://ideal-consortium.github.io/assets/images/flowcharts/Project%20Flowchart%20(Data%20extraction).png"
+        alt="IDEAL Project Flowchart — Data Extraction"
+        onerror="this.style.display='none'"
+      />
+      <p class="flowchart-caption">IDEAL Data Extraction Workflow — Figure 1 in the full guide</p>
+    </div>
+  </div>
+
+  <!-- Full guide embed -->
+  <div class="section-head" id="full-guide"><div class="dot"></div><h2>Full Review Guide</h2></div>
+  <div class="card">
+    <div class="pdf-embed-wrap">
+      <iframe
+        src="assets/IDEAL_Review_Guide_clean_0526.pdf#view=FitH"
+        title="IDEAL Review Guide PDF"
+      ></iframe>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© IDEAL Consortium · <a href="https://ideal-consortium.github.io/">ideal-consortium.github.io</a></span>
+  <span>Led by the World Bank Strategic Impact Evaluation Fund</span>
+</footer>
+
 </body>
 </html>
